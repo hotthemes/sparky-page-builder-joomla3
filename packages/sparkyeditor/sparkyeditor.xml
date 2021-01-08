@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="content">
+    <name>Content - Sparky Editor</name>
+    <author>HotThemes</author>
+    <creationDate>January 2020</creationDate>
+    <copyright>Copyright 2020 by HotThemes.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+    <authorEmail>info@hotjoomlatemplates.com</authorEmail>
+    <authorUrl>https://www.hotjoomlatemplates.com</authorUrl>
+    <version>1.0.0</version>
+    <description>Sparky Page Builder content plugin</description>
+    <scriptfile>install.php</scriptfile>
+	
+    <files>
+        <filename plugin="sparkyeditor">sparkyeditor.php</filename>
+    </files>
+
+    <media destination="editors/sparky" folder="media">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>webfonts</folder>
+	</media>
+	
+	<languages folder="languages">
+		<language tag="en-GB">en-GB/en-GB.plg_content_sparkyeditor.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_content_sparkyeditor.sys.ini</language>
+	</languages>
+	
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				
+			</fieldset>
+		</fields>
+	</config>
+	
+</extension>
