@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
 //// I
 
 // get sparky editor textarea & editor container
@@ -4443,7 +4442,6 @@ function sparky_modal(modal_type) {
 
 }
 
-}, false);
 /*
 
 
