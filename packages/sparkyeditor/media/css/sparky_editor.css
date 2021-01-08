@@ -597,6 +597,7 @@ ul.sparky_modal_blocks li, ul.sparky_modal_rows li {
 ul.sparky_modal_blocks li a {
     display: block;
     opacity: 0.7;
+    color: #333;
 }
 
 ul.sparky_modal_rows li a {
@@ -717,9 +718,9 @@ a#sparky_block_joomlamodule::before {
 /* Modal Footer */
 
 .sparky_modal-footer {
-    padding: 15px;
+    padding: 0 15px;
     border-top: 1px solid #dee2e6;
-    min-height: 70px;
+    min-height: 50px;
 }
 
 .sparky_modal-footer p {
@@ -727,6 +728,10 @@ a#sparky_block_joomlamodule::before {
     float: right;
     color: #999;
     font-size: 0.8em;
+}
+
+.sparky_modal-footer button {
+    margin-top: 10px;
 }
 
 /* Modal Content */
@@ -749,7 +754,7 @@ a#sparky_block_joomlamodule::before {
 }
 
 input#row_background_image, input#column_background_image, input#heading_link, input#image_src, input#image_link, input#button_link, input#icon_link, input#iframe_src, input#video_poster, input#video_mp4, input#video_ogg, input#video_webm, input#audio_mp3, input#audio_ogg, input#audio_wav, input#social_link1, input#social_link2, input#social_link3, input#social_link4, input#social_link5, input#social_link6, input#add_link_link {
-    width: 96%;
+    width: 90%;
 }
 
 /* Animation */
