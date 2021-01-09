@@ -31,6 +31,34 @@ class PlgEditorSparky extends JPlugin
     // sparky_editor.js must be called in footer
 		// JHtml::_('script', 'editors/sparky/sparky_editor.js', array('version' => 'auto', 'relative' => true));
 
+
+    // get the default template for the site application
+
+    $db =& JFactory::getDBO();
+    $query = $db->getQuery(true)
+      ->select('template')
+      ->from('#__template_styles')
+      ->where('client_id=0 AND home=' . $db->quote('1'));
+
+    $db->setQuery($query);
+
+    try
+    {
+      $template = $db->loadResult();
+    }
+    catch (RuntimeException $e)
+    {
+      $app->enqueueMessage(JText::_('JERROR_AN_ERROR_HAS_OCCURRED'), 'error');
+
+      return '';
+    }
+
+    $templates_path = JPATH_SITE . '/templates';
+
+    if (file_exists($templates_path . DIRECTORY_SEPARATOR . $template . '/css/editor.css')) {
+        JHtml::_('stylesheet', JURI :: root() . 'templates/' . $template . '/css/editor.css', array('version' => 'auto', 'relative' => true));
+    }
+
 	}
 
 	/**
