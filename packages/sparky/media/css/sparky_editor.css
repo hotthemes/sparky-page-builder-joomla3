@@ -8,11 +8,11 @@ body {
     height: 200px;
     margin: 0 auto;
 }
-.page_row {
+.sparky_page_row {
     margin: 0 auto;
     max-width: 1200px;
 }
-.page_row.row_full_width {
+.sparky_page_row.row_full_width {
     max-width: 100%;
 }
 .sparky_page_container {
@@ -60,7 +60,7 @@ body {
     width: calc(100% - 10px);
 }
 
-#sparkyPageContentEditable .page_row {
+#sparkyPageContentEditable .sparky_page_row {
     border: 1px solid #ccc;
 }
 #sparkyPageContentEditable .sparky_cell {

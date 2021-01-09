@@ -37,7 +37,7 @@ if (sparkyEditorTextarea.value === "") {
 
     sparkyPageContentArray.push({
         id: "row_" + random_row_class,
-        class: "page_row sparky_row0",
+        class: "sparky_page_row sparky_row0",
         style: {},
         content: []
     });
@@ -70,7 +70,7 @@ if (sparkyEditorTextarea.value === "") {
         ||
         !sparkyPageContentParsed.childNodes[0].childNodes[1].childNodes[0].id.startsWith("row_")
         ||
-        !sparkyPageContentParsed.childNodes[0].childNodes[1].childNodes[0].className.includes("page_row")
+        !sparkyPageContentParsed.childNodes[0].childNodes[1].childNodes[0].className.includes("sparky_page_row")
     ) {
 
         alert("This content is not created with the Sparky Page Builder!\n\nThe initial layout will be created and the existing content will be in a Custom HTML block.\n\nIf you don't want to edit this with  Sparky Page Builder, click OK and then close without saving.");
@@ -80,7 +80,7 @@ if (sparkyEditorTextarea.value === "") {
 
         sparkyPageContentArray.push({
             id: "row_" + random_row_class,
-            class: "page_row sparky_row0",
+            class: "sparky_page_row sparky_row0",
             style: {},
             content: []
         });
@@ -138,7 +138,7 @@ function populateSparkyPageContentArray(sparkyRows) {
 
         // include only page rows!
         // we'll skip from content array: row settings, dropzones, and add row button      
-        if (! row.className.includes("page_row sparky_row") && row.id !== "system-readmore" && !row.className.includes("system-pagebreak")) {
+        if (! row.className.includes("sparky_page_row sparky_row") && row.id !== "system-readmore" && !row.className.includes("system-pagebreak")) {
             return;
         }
         if (row.id === "system-readmore" || row.className.includes("system-pagebreak")) {
@@ -1649,7 +1649,7 @@ sparkyEditorButtonsEvents();
 function onRowDragStart(event) {
 
     // display row drop zones
-    if ( event.target.className.includes("page_row") || event.target.id === "system-readmore" || event.target.className.includes("system-pagebreak") ) {
+    if ( event.target.className.includes("sparky_page_row") || event.target.id === "system-readmore" || event.target.className.includes("system-pagebreak") ) {
         rowDropZones(true, event.currentTarget);
     }
 
@@ -1661,7 +1661,7 @@ function onRowDragStart(event) {
 function onRowDragEnd(event){
 
     // deactivate row drop zones
-    if ( event.target.className.includes("page_row") || event.target.id === "system-readmore" || event.target.className.includes("system-pagebreak") ) {
+    if ( event.target.className.includes("sparky_page_row") || event.target.id === "system-readmore" || event.target.className.includes("system-pagebreak") ) {
         rowDropZones(false, event.currentTarget);
     }
 
@@ -2078,7 +2078,7 @@ function filterRowClass(str) {
 
     classArr.forEach(function(className){
         if(
-            className==="page_row"
+            className==="sparky_page_row"
             ||
             className.startsWith("sparky_row")
             ||
@@ -2403,7 +2403,7 @@ function sparky_modal(modal_type) {
                 // add row to the sparky object
                 sparkyPageContentArray.push({
                     id: "row_" + random_row_class,
-                    class: "page_row sparky_row" + new_row_position,
+                    class: "sparky_page_row sparky_row" + new_row_position,
                     style: {},
                     content: []
                 });
@@ -2443,7 +2443,7 @@ function sparky_modal(modal_type) {
         // row ID value
         document.getElementById("row_id").value = sparkyPageContentArray[sparkyRowPosition].id;
 
-        // row class value (without "page_row", "row_full_width" and "sparky_rowX")
+        // row class value (without "sparky_page_row", "row_full_width" and "sparky_rowX")
         document.getElementById("row_class").value = filterRowClass(sparkyPageContentArray[sparkyRowPosition].class);
 
         // row full width value
@@ -2553,7 +2553,7 @@ function sparky_modal(modal_type) {
             sparkyPageContentArray[sparkyRowPosition].id = document.getElementById("row_id").value;
 
             // row class ("sparky_rowX" must be last)
-            sparkyPageContentArray[sparkyRowPosition].class = document.getElementById("row_class").value + " page_row sparky_row" + sparkyRowPosition;
+            sparkyPageContentArray[sparkyRowPosition].class = document.getElementById("row_class").value + " sparky_page_row sparky_row" + sparkyRowPosition;
 
             // row full width
             if (document.getElementById("row_full_width").checked) {

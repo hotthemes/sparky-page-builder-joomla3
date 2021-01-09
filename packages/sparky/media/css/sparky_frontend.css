@@ -1,10 +1,10 @@
-.page_row * {
+.sparky_page_row * {
     box-sizing: border-box;
 }
 
 /* Layout */
 
-.page_row.row_full_width {
+.sparky_page_row.row_full_width {
     width: calc(100vw - var(--scrollbar-width));
     position: relative;
     left: calc(50% + 0.5 * var(--scrollbar-width));
@@ -19,7 +19,7 @@
     margin: 0 -15px;
 }
 
-.page_row.row_full_width .sparky_page_container {
+.sparky_page_row.row_full_width .sparky_page_container {
     margin: 0 auto;
 }
 
