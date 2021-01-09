@@ -14,12 +14,12 @@
     overflow:hidden;
 }
 
-.page_container {
+.sparky_page_container {
     display: flex;
     margin: 0 -15px;
 }
 
-.page_row.row_full_width .page_container {
+.page_row.row_full_width .sparky_page_container {
     margin: 0 auto;
 }
 
@@ -306,7 +306,7 @@ a.sparky_icon_link {
 
 @media (max-width: 768px) {
 
-    .page_container {
+    .sparky_page_container {
         flex-direction: column;
     }
 

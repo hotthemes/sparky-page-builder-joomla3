@@ -556,7 +556,7 @@ function createEditableContentFromArray(arr) {
         } else if ( row.class.includes("system-pagebreak") ) {
             sparkyHTML += `<div class="row_settings_buttons"><a class="page_break_settings" title="Page Break Settings"></a><a class="row_up" title="Move Up"></a><a class="row_down" title="Move Down"></a><a class="delete_row" title="Delete Page Break Tag"></a></div><hr id="${row.id}" class="system-pagebreak sparky_row${i}" title="${row.title}" alt="${row.alias}" draggable="true" ondragstart="onRowDragStart(event);" ondragend="onRowDragEnd(event);">`;
         } else {
-            sparkyHTML += `<div class="row_settings_buttons"><a class="row_settings" title="Row Settings"></a><a class="copy_row" title="Copy Row"></a><a class="add_column" title="Add Column"></a><a class="row_up" title="Move Up"></a><a class="row_down" title="Move Down"></a><a class="delete_row" title="Delete Row"></a></div><div id="${row.id}" class="${row.class}" ${rowStyle} draggable="true" ondragstart="onRowDragStart(event);" ondragend="onRowDragEnd(event);"><div class="page_container">`;
+            sparkyHTML += `<div class="row_settings_buttons"><a class="row_settings" title="Row Settings"></a><a class="copy_row" title="Copy Row"></a><a class="add_column" title="Add Column"></a><a class="row_up" title="Move Up"></a><a class="row_down" title="Move Down"></a><a class="delete_row" title="Delete Row"></a></div><div id="${row.id}" class="${row.class}" ${rowStyle} draggable="true" ondragstart="onRowDragStart(event);" ondragend="onRowDragEnd(event);"><div class="sparky_page_container">`;
         }
 
         let j = 0;
@@ -842,7 +842,7 @@ function createRealContentFromArray(arr) {
         } else if ( row.class.includes("system-pagebreak") ) {
             sparkyHTMLTextarea += `<hr id="${row.id}" class="system-pagebreak" title="${row.title}" alt="${row.alias}" />`;
         } else {
-            sparkyHTMLTextarea += `<div id="${row.id}" class="${row.class}" ${rowStyle}><div class="page_container">`;
+            sparkyHTMLTextarea += `<div id="${row.id}" class="${row.class}" ${rowStyle}><div class="sparky_page_container">`;
         }
 
         let j = 0;
