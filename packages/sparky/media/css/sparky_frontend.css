@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 /* Layout */
 
 .page_row.row_full_width {
@@ -298,3 +302,16 @@ a.sparky_icon_link {
 /* Joomla frontend */
 
 
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .page_container {
+        flex-direction: column;
+    }
+
+    .sparky_cell {
+        width: 100%;
+    }
+
+}
