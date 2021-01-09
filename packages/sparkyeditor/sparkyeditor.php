@@ -24,9 +24,9 @@ class plgContentSparkyEditor extends JPlugin
 		$doc = JFactory::getDocument();
 		
 		// add your stylesheet
-		$doc->addStyleSheet( JURI :: base().'media/editors/sparky/css/fontawesome.min.css' );
-		$doc->addStyleSheet( JURI :: base().'media/editors/sparky/css/sparky_frontend.css' );
-		$doc->addScript( JURI :: base().'media/editors/sparky/js/sparky_frontend.js' );
+		$doc->addStyleSheet( JURI :: base().'media/plg_editors_sparky/css/fontawesome.min.css' );
+		$doc->addStyleSheet( JURI :: base().'media/plg_editors_sparky/css/sparky_frontend.css' );
+		$doc->addScript( JURI :: base().'media/plg_editors_sparky/js/sparky_frontend.js' );
 
 		// /** @var HtmlDocument $doc */
 		// $doc = Factory::getApplication()->getDocument();
@@ -40,13 +40,8 @@ class plgContentSparkyEditor extends JPlugin
 		// allow multiple galleries on a page
 		$UniqueNo = rand();
 		
-		// style declaration
-		$doc->addStyleDeclaration( '
-
-			#responsivelightbox'.$UniqueNo.' {
-			}
-
-		' );
+		// inline style declaration
+		$doc->addStyleDeclaration( '' );
 		
 	}
 }

@@ -2813,7 +2813,7 @@ function sparky_modal(modal_type) {
                 type: "image",
                 link: "",
                 target: false,
-                src: "media/editors/sparky/images/image.png",
+                src: "media/plg_editors_sparky/images/image.png",
                 alt: ""
             });
 
@@ -2912,7 +2912,7 @@ function sparky_modal(modal_type) {
                 id: "",
                 class: "",
                 style: {},
-                poster: "media/editors/sparky/images/video.png",
+                poster: "media/plg_editors_sparky/images/video.png",
                 mp4: "",
                 ogg: "",
                 webm: "",

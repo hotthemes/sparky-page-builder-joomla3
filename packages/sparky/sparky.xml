@@ -12,6 +12,12 @@
 	<files>
 		<filename plugin="sparky">sparky.php</filename>
 	</files>
+	<media destination="plg_editors_sparky" folder="media">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>webfonts</folder>
+	</media>
 	<languages folder="languages">
 		<language tag="en-GB">en-GB/en-GB.plg_editors_sparky.ini</language>
 		<language tag="en-GB">en-GB/en-GB.plg_editors_sparky.sys.ini</language>

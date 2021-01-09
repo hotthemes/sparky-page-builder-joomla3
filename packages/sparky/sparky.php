@@ -25,8 +25,8 @@ class PlgEditorSparky extends JPlugin
 
 	public function onInit()
 	{
-		JHtml::_('stylesheet', 'editors/sparky/fontawesome.min.css', array('version' => 'auto', 'relative' => true));
-    JHtml::_('stylesheet', 'editors/sparky/sparky_editor.css', array('version' => 'auto', 'relative' => true));
+		JHtml::_('stylesheet', 'plg_editors_sparky/fontawesome.min.css', array('version' => 'auto', 'relative' => true));
+    JHtml::_('stylesheet', 'plg_editors_sparky/sparky_editor.css', array('version' => 'auto', 'relative' => true));
     JHtml::_('script', 'editors/none/none.min.js', array('version' => 'auto', 'relative' => true));
     // sparky_editor.js must be called in footer
 		// JHtml::_('script', 'editors/sparky/sparky_editor.js', array('version' => 'auto', 'relative' => true));
@@ -1198,7 +1198,7 @@ class PlgEditorSparky extends JPlugin
   </div>
 </div>
 
-<script src="'.JURI :: root().'media/editors/sparky/js/sparky_editor.js"></script>
+<script src="'.JURI :: root().'media/plg_editors_sparky/js/sparky_editor.js"></script>
 ';
 
 		return $editor;

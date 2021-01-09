@@ -14,13 +14,6 @@
     <files>
         <filename plugin="sparkyeditor">sparkyeditor.php</filename>
     </files>
-
-    <media destination="editors/sparky" folder="media">
-		<folder>css</folder>
-		<folder>images</folder>
-		<folder>js</folder>
-		<folder>webfonts</folder>
-	</media>
 	
 	<languages folder="languages">
 		<language tag="en-GB">en-GB/en-GB.plg_content_sparkyeditor.ini</language>
