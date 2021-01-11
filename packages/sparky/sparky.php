@@ -256,7 +256,45 @@ class PlgEditorSparky extends JPlugin
             <label><input type="checkbox" name="row_fluid" id="row_fluid"> Fluid Row</label>
             <label></label>
             <label>Background Color<br><input class="minicolors hex" type="text" name="row_background_color" id="row_background_color"></label>
-            <label>Background Image <input type="text" name="row_background_image" id="row_background_image" placeholder="i.e. images/image.png"></label>
+            <div>Background Image</div>
+            <div id="row_background_image_wrapper" class="field-media-wrapper"
+            data-basepath="'.JURI :: root().'"
+            data-url="index.php?option=com_media&amp;view=images&amp;tmpl=component&amp;author=&amp;fieldid={field-media-id}&amp;ismoo=0"
+            data-modal=".modal"
+            data-modal-width="100%"
+            data-modal-height="645px"
+            data-input=".field-media-input"
+            data-button-select=".button-select"
+            data-button-clear=".button-clear"
+            data-button-save-selected=".button-save-selected"
+            data-preview="true"
+            data-preview-as-tooltip="true"
+            data-preview-container=".field-media-preview"
+            data-preview-width="200"
+            data-preview-height="200">
+              <div id="imageModal_jform_params_image1" tabindex="-1" class="modal hide fade">
+                <div class="modal-header">
+                  <button type="button" class="close novalidate" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h3>Change Image</h3>
+                </div>
+                <div class="modal-body">
+                </div>
+              </div>
+              <div class="input-prepend input-append">
+                <span rel="popover" class="add-on pop-helper field-media-preview"
+                  title="Selected image." data-content="No image selected."
+                  data-original-title="Selected image." data-trigger="hover">
+                  <span class="icon-eye" aria-hidden="true"></span>
+                </span>
+                <input type="text" name="row_background_image" id="row_background_image" readonly="readonly" class="input-small hasTooltip field-media-input"/>
+                <button type="button" class="btn button-select">Select</button>
+                <button type="button" class="btn hasTooltip button-clear" title="Clear" aria-label="Clear">
+                  <span class="icon-remove" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
             <label>Background Image Repeat:
                 <select id="row_background_image_repeat">
                     <option value="">Repeat</option>
@@ -342,7 +380,45 @@ class PlgEditorSparky extends JPlugin
       <div class="sparky_modal-body">
         <form>
             <label>Background Color<br><input type="text" name="column_background_color" id="column_background_color" placeholder="ex: #FF9933"></label>
-            <label>Background Image <input type="text" name="column_background_image" id="column_background_image" placeholder="i.e. images/image.png"></label>
+            <div>Background Image</div>
+            <div id="column_background_image_wrapper" class="field-media-wrapper"
+            data-basepath="'.JURI :: root().'"
+            data-url="index.php?option=com_media&amp;view=images&amp;tmpl=component&amp;author=&amp;fieldid={field-media-id}&amp;ismoo=0"
+            data-modal=".modal"
+            data-modal-width="100%"
+            data-modal-height="645px"
+            data-input=".field-media-input"
+            data-button-select=".button-select"
+            data-button-clear=".button-clear"
+            data-button-save-selected=".button-save-selected"
+            data-preview="true"
+            data-preview-as-tooltip="true"
+            data-preview-container=".field-media-preview"
+            data-preview-width="200"
+            data-preview-height="200">
+              <div id="imageModal_jform_params_image1" tabindex="-1" class="modal hide fade">
+                <div class="modal-header">
+                  <button type="button" class="close novalidate" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h3>Change Image</h3>
+                </div>
+                <div class="modal-body">
+                </div>
+              </div>
+              <div class="input-prepend input-append">
+                <span rel="popover" class="add-on pop-helper field-media-preview"
+                  title="Selected image." data-content="No image selected."
+                  data-original-title="Selected image." data-trigger="hover">
+                  <span class="icon-eye" aria-hidden="true"></span>
+                </span>
+                <input type="text" name="column_background_image" id="column_background_image" readonly="readonly" class="input-small hasTooltip field-media-input"/>
+                <button type="button" class="btn button-select">Select</button>
+                <button type="button" class="btn hasTooltip button-clear" title="Clear" aria-label="Clear">
+                  <span class="icon-remove" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
             <label>Background Image Repeat:
                 <select id="column_background_image_repeat">
                     <option value="">Repeat</option>
@@ -548,11 +624,7 @@ class PlgEditorSparky extends JPlugin
             data-preview-height="200">
               <div id="imageModal_jform_params_image1" tabindex="-1" class="modal hide fade">
                 <div class="modal-header">
-                  <button
-                    type="button"
-                    class="close novalidate"
-                    data-dismiss="modal"
-                    aria-label="Close">
+                  <button type="button" class="close novalidate" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                   <h3>Change Image</h3>
@@ -568,17 +640,11 @@ class PlgEditorSparky extends JPlugin
                 </span>
                 <input type="text" name="image_src" id="image_src" readonly="readonly" class="input-small hasTooltip field-media-input"/>
                 <button type="button" class="btn button-select">Select</button>
-                <button
-                  type="button"
-                  class="btn hasTooltip button-clear"
-                  title="Clear"
-                  aria-label="Clear"
-                  >
+                <button type="button" class="btn hasTooltip button-clear" title="Clear" aria-label="Clear">
                   <span class="icon-remove" aria-hidden="true"></span>
                 </button>
               </div>
             </div>
-
             <label>Alt Text <input id="image_alt" type="text" name="image_alt" placeholder="Image description"></label>
             <label>Image Align
                 <select id="image_align">

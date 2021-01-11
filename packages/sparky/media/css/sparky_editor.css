@@ -765,7 +765,9 @@ input#row_background_image, input#column_background_image, input#heading_link, i
 
 /* Media modal */
 
-.sparky_modal-content .sparky_modal-body input#image_src {
+.sparky_modal-content .sparky_modal-body input#image_src,
+.sparky_modal-content .sparky_modal-body input#row_background_image,
+.sparky_modal-content .sparky_modal-body input#column_background_image {
     display: inline-block;
     border: 1px solid #b3b3b3;
 }
