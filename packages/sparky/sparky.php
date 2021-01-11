@@ -30,6 +30,7 @@ class PlgEditorSparky extends JPlugin
     JHtml::_('stylesheet', 'plg_editors_sparky/sparky_editor.css', array('version' => 'auto', 'relative' => true));
     JHtml::_('script', 'editors/none/none.min.js', array('version' => 'auto', 'relative' => true));
     JHtml::_('script', 'jui/jquery.minicolors.min.js', array('version' => 'auto', 'relative' => true));
+    JHtml::_('script', 'media/mediafield.min.js', array('version' => 'auto', 'relative' => true));
     // sparky_editor.js must be called in footer
 		// JHtml::_('script', 'editors/sparky/sparky_editor.js', array('version' => 'auto', 'relative' => true));
 
@@ -529,7 +530,55 @@ class PlgEditorSparky extends JPlugin
             <label>Image ID <input id="image_id" type="text" name="image_id" placeholder="i.e. myBlock"></label>
             <label>Image Class <input id="image_class" type="text" name="image_class" placeholder="i.e. myClass"></label>
             <label></label>
-            <label>Source <input id="image_src" type="text" name="image_src" placeholder="i.e. images/image.png"></label>
+            <div>Source</div>
+            <div id="image_src_wrapper" class="field-media-wrapper"
+            data-basepath="'.JURI :: root().'"
+            data-url="index.php?option=com_media&amp;view=images&amp;tmpl=component&amp;author=&amp;fieldid={field-media-id}&amp;ismoo=0"
+            data-modal=".modal"
+            data-modal-width="100%"
+            data-modal-height="645px"
+            data-input=".field-media-input"
+            data-button-select=".button-select"
+            data-button-clear=".button-clear"
+            data-button-save-selected=".button-save-selected"
+            data-preview="true"
+            data-preview-as-tooltip="true"
+            data-preview-container=".field-media-preview"
+            data-preview-width="200"
+            data-preview-height="200">
+              <div id="imageModal_jform_params_image1" tabindex="-1" class="modal hide fade">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="close novalidate"
+                    data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h3>Change Image</h3>
+                </div>
+                <div class="modal-body">
+                </div>
+              </div>
+              <div class="input-prepend input-append">
+                <span rel="popover" class="add-on pop-helper field-media-preview"
+                  title="Selected image." data-content="No image selected."
+                  data-original-title="Selected image." data-trigger="hover">
+                  <span class="icon-eye" aria-hidden="true"></span>
+                </span>
+                <input type="text" name="image_src" id="image_src" readonly="readonly" class="input-small hasTooltip field-media-input"/>
+                <button type="button" class="btn button-select">Select</button>
+                <button
+                  type="button"
+                  class="btn hasTooltip button-clear"
+                  title="Clear"
+                  aria-label="Clear"
+                  >
+                  <span class="icon-remove" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
             <label>Alt Text <input id="image_alt" type="text" name="image_alt" placeholder="Image description"></label>
             <label>Image Align
                 <select id="image_align">
@@ -546,7 +595,6 @@ class PlgEditorSparky extends JPlugin
                     <option value="blank">New Window</option>
                 </select>
             </label>
-            <label></label>
             <label>Width <input id="image_width" type="text" name="image_width" placeholder="i.e. 150px"></label>
             <label>Height <input id="image_height" type="text" name="image_height" placeholder="i.e. 150px"></label>
         </form>

@@ -759,8 +759,32 @@ a#sparky_block_joomlamodule::before {
     width: 60vw;
 }
 
-input#row_background_image, input#column_background_image, input#heading_link, input#image_src, input#image_link, input#button_link, input#icon_link, input#iframe_src, input#video_poster, input#video_mp4, input#video_ogg, input#video_webm, input#audio_mp3, input#audio_ogg, input#audio_wav, input#social_link1, input#social_link2, input#social_link3, input#social_link4, input#social_link5, input#social_link6, input#add_link_link {
+input#row_background_image, input#column_background_image, input#heading_link, input#image_src, input#image_link, input#button_link, input#icon_link, input#video_poster, input#video_mp4, input#video_ogg, input#video_webm, input#audio_mp3, input#audio_ogg, input#audio_wav, input#social_link1, input#social_link2, input#social_link3, input#social_link4, input#social_link5, input#social_link6, input#add_link_link {
     width: 90%;
+}
+
+/* Media modal */
+
+.sparky_modal-content .sparky_modal-body input#image_src {
+    display: inline-block;
+    border: 1px solid #b3b3b3;
+}
+
+.sparky_modal-content .sparky_modal-body .field-media-wrapper {
+    margin-bottom: 15px;
+}
+
+.sparky_modal-body .field-media-wrapper .modal {
+    top: 0 !important;
+    width: 100vw;
+    left: 0px;
+    height: 100vh;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.sparky_modal-body .field-media-wrapper .modal iframe {
+    max-height: 100vh;
 }
 
 /* Animation */
