@@ -2299,18 +2299,28 @@ function rgb_to_hex_values(rgb) {
     return hex;
 };
 function rgb_to_hex(rgb) {  
-    var rgb_values;
-    rgb_values = rgb.replace('rgb(', '').replace(')', '').split(', ');
+    var rgb_values, red, green, blue;
+    if (rgb) {
+        rgb_values = rgb.replace('rgb(', '').replace(')', '').split(', ');
+    }
 
-    var red = rgb_to_hex_values(rgb_values[0]);
-    var green = rgb_to_hex_values(rgb_values[1]);
-    var blue = rgb_to_hex_values(rgb_values[2]);
+    if (rgb_values) {
+        red = rgb_to_hex_values(rgb_values[0]);
+        green = rgb_to_hex_values(rgb_values[1]);
+        blue = rgb_to_hex_values(rgb_values[2]);
+    }
 
     if (red == "NaN" || green == "NaN" || blue == "NaN") {
         return rgb;
     }
     return "#" + red + green + blue;
 };
+
+// minicolors init
+function sparky_minicolors(setting, value) {
+    jQuery(setting).minicolors({theme: "bootstrap", format: "rgb", opacity: true});
+    jQuery(setting).minicolors('value', rgb_to_hex(value));
+}
 
 // url("image.png") >>> image.png
 function sparkyStyleURL(str) {
@@ -2433,6 +2443,7 @@ function sparky_modal(modal_type) {
     if (modal_type === "row_settings_modal") {
 
         modal.style.display = "block";
+        
 
         // event.composedPath()[1].nextSibling -> row element
         // determine row position
@@ -2461,6 +2472,7 @@ function sparky_modal(modal_type) {
         }
 
         // row background color value
+        sparky_minicolors("input#row_background_color", sparkyPageContentArray[sparkyRowPosition].style.backgroundColor);
         if (sparkyPageContentArray[sparkyRowPosition].style.backgroundColor) {
             document.getElementById("row_background_color").value = rgb_to_hex(sparkyPageContentArray[sparkyRowPosition].style.backgroundColor);
         } else {
@@ -2640,6 +2652,7 @@ function sparky_modal(modal_type) {
         modal.style.display = "block";
 
         // column background color value
+        sparky_minicolors("input#column_background_color", sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundColor);
         if (sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundColor) {
             document.getElementById("column_background_color").value = rgb_to_hex(sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundColor);
         } else {
@@ -2828,7 +2841,7 @@ function sparky_modal(modal_type) {
             sparkyPageContentArray[sparkyBlockPosition[0]].content[sparkyBlockPosition[1]].content.push({
                 id: "",
                 class: "",
-                style: {},
+                style: {height: "3px"},
                 link: "",
                 type: "separator"
             });
@@ -3047,6 +3060,7 @@ function sparky_modal(modal_type) {
         document.getElementById("paragraph_class").value = filterBlockClass(block.class);
 
         // paragraph block text color value
+        sparky_minicolors("input#paragraph_color", block.style.color);
         if (block.style.color) {
             document.getElementById("paragraph_color").value = rgb_to_hex(block.style.color);
         } else {
@@ -3158,6 +3172,7 @@ function sparky_modal(modal_type) {
         }
 
         // heading block text color value
+        sparky_minicolors("input#heading_color", block.style.color);
         if (block.style.color) {
             document.getElementById("heading_color").value = rgb_to_hex(block.style.color);
         } else {
@@ -3352,6 +3367,7 @@ function sparky_modal(modal_type) {
         document.getElementById("icon_class").value = filterBlockClass(block.class).replace("fa-", "").replace("fas ", "").replace("far ", "").replace("fab ", "");
 
         // icon block color value
+        sparky_minicolors("input#icon_color", block.style.color);
         if (block.style.color) {
             document.getElementById("icon_color").value = rgb_to_hex(block.style.color);
         } else {
@@ -3449,6 +3465,7 @@ function sparky_modal(modal_type) {
         document.getElementById("separator_class").value = filterBlockClass(block.class);
 
         // separator block color value
+        sparky_minicolors("input#separator_color", block.style.backgroundColor);
         if (block.style.backgroundColor) {
             document.getElementById("separator_color").value = rgb_to_hex(block.style.backgroundColor);
         } else {
@@ -3598,6 +3615,7 @@ function sparky_modal(modal_type) {
         }
 
         // button block text color value
+        sparky_minicolors("input#button_text_color", block.style.color);
         if (block.style.color) {
             document.getElementById("button_text_color").value = rgb_to_hex(block.style.color);
         } else {
@@ -3605,6 +3623,7 @@ function sparky_modal(modal_type) {
         }
 
         // button block background color value
+        sparky_minicolors("input#button_background_color", block.style.backgroundColor);
         if (block.style.backgroundColor) {
             document.getElementById("button_background_color").value = rgb_to_hex(block.style.backgroundColor);
         } else {
@@ -3619,6 +3638,7 @@ function sparky_modal(modal_type) {
         }
 
         // button block border color value
+        sparky_minicolors("input#button_border_color", block.style.borderColor);
         if (block.style.borderColor) {
             document.getElementById("button_border_color").value = rgb_to_hex(block.style.borderColor);
         } else {
@@ -3742,6 +3762,7 @@ function sparky_modal(modal_type) {
         document.getElementById("list_type").value = block.listType;
 
         // list block text color value
+        sparky_minicolors("input#list_color", block.style.color);
         if (block.style.color) {
             document.getElementById("list_color").value = rgb_to_hex(block.style.color);
         } else {
@@ -4212,6 +4233,7 @@ function sparky_modal(modal_type) {
         }
 
         // social block text color value
+        sparky_minicolors("input#social_color", block.style.color);
         if (block.style.color) {
             document.getElementById("social_color").value = rgb_to_hex(block.style.color);
         } else {
