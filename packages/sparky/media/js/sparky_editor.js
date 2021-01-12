@@ -135,6 +135,11 @@ function populateSparkyPageContentArray(sparkyRows) {
     sparkyRows.forEach(function(row){
 
         let sparkyRow;
+        
+        // row must be in div
+        if(row.nodeName !== "DIV" && row.nodeName !== "HR") {
+            return;
+        }
 
         // include only page rows!
         // we'll skip from content array: row settings, dropzones, and add row button      
@@ -144,7 +149,9 @@ function populateSparkyPageContentArray(sparkyRows) {
         if (row.id === "system-readmore" || row.className.includes("system-pagebreak")) {
             sparkyRow = row.childNodes;
         } else {
-            sparkyRow = row.childNodes[0].childNodes;
+            // because of whitespace, we have childnodes: #text / DIV / #text
+            // so, let's take the second (in array it's [1])
+            sparkyRow = row.childNodes[1].childNodes;
         }
 
         sparkyPageContentArray.push({
@@ -164,8 +171,8 @@ function populateSparkyPageContentArray(sparkyRows) {
 
         sparkyRow.forEach(function(column){
 
-            // don't include column dropzones
-            if ( column.className === "column_dropzone" ) {
+            // don't include column dropzones and whitespace
+            if ( column.className === "column_dropzone" || column.nodeName !== "DIV" ) {
                 return;
             }
 
@@ -838,11 +845,15 @@ function createRealContentFromArray(arr) {
         }
         
         if ( row.id === "system-readmore" ) {
-            sparkyHTMLTextarea += `<hr id="${row.id}" />`;
+            sparkyHTMLTextarea += `<hr id="${row.id}" />
+`;
         } else if ( row.class.includes("system-pagebreak") ) {
-            sparkyHTMLTextarea += `<hr id="${row.id}" class="system-pagebreak" title="${row.title}" alt="${row.alias}" />`;
+            sparkyHTMLTextarea += `<hr id="${row.id}" class="system-pagebreak" title="${row.title}" alt="${row.alias}" />
+            `;
         } else {
-            sparkyHTMLTextarea += `<div id="${row.id}" class="${row.class}" ${rowStyle}><div class="sparky_page_container">`;
+            sparkyHTMLTextarea += `<div id="${row.id}" class="${row.class}" ${rowStyle}>
+        <div class="sparky_page_container">
+            `;
         }
 
         let j = 0;
@@ -1039,12 +1050,15 @@ function createRealContentFromArray(arr) {
 
                 j++;
 
-                sparkyHTMLTextarea += `</div>`;
+                sparkyHTMLTextarea += `</div>
+            `;
 
         });
 
         if ( row.id !== "system-readmore" && !row.class.includes("system-pagebreak") ) {
-            sparkyHTMLTextarea += `</div></div>`;
+            sparkyHTMLTextarea += `</div>
+</div>
+`;
         }
 
         i++;
@@ -2667,29 +2681,30 @@ function sparky_modal(modal_type) {
         }
 
         // column background image repeat: no-repeat, repeat, repeat-x, repeat-y
+        console.log(sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundRepeat)
         if (sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundRepeat) {
-            document.getElementById("column_background_image_repeat").value = sparkyPageContentArray[sparkyRowPosition].style.backgroundRepeat;
+            document.getElementById("column_background_image_repeat").value = sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundRepeat;
         } else {
             document.getElementById("column_background_image_repeat").value = "";
         }
 
         // column background image position: top left, top center, top right, center left, center center, center right, bottom left, bottom center, bottom right
         if (sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundPosition) {
-            document.getElementById("column_background_image_position").value = sparkyPageContentArray[sparkyRowPosition].style.backgroundPosition;
+            document.getElementById("column_background_image_position").value = sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundPosition;
         } else {
             document.getElementById("column_background_image_position").value = "";
         }
 
         // column background image size: cover, contain
         if (sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundSize) {
-            document.getElementById("column_background_image_size").value = sparkyPageContentArray[sparkyRowPosition].style.backgroundSize;
+            document.getElementById("column_background_image_size").value = sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundSize;
         } else {
             document.getElementById("column_background_image_size").value = "";
         }
 
         // column background image attachment: scroll, fixed
         if (sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundAttachment) {
-            document.getElementById("rcolumn_background_image_attachment").value = sparkyPageContentArray[sparkyRowPosition].style.backgroundAttachment;
+            document.getElementById("column_background_image_attachment").value = sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundAttachment;
         } else {
             document.getElementById("column_background_image_attachment").value = "";
         }
