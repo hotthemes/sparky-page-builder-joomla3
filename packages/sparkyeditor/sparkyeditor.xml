@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="1.6" type="plugin" group="content">
-    <name>Content - Sparky Editor</name>
+    <name>Content - Sparky Content Plugin</name>
     <author>HotThemes</author>
-    <creationDate>January 2020</creationDate>
-    <copyright>Copyright 2020 by HotThemes.</copyright>
+    <creationDate>January 2021</creationDate>
+    <copyright>Copyright 2021 by HotThemes.</copyright>
 	<license>GNU General Public License version 2 or later</license>
     <authorEmail>info@hotjoomlatemplates.com</authorEmail>
     <authorUrl>https://www.hotjoomlatemplates.com</authorUrl>
-    <version>1.0.0</version>
+    <version>0.2</version>
     <description>Sparky Page Builder content plugin</description>
     <scriptfile>install.php</scriptfile>
 	
