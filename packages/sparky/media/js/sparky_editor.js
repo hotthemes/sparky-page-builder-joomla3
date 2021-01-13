@@ -721,14 +721,28 @@ function createEditableContentFromArray(arr) {
                             let audioMessage = "";
                             let audioLoop = "";
                             let audioMuted = "";
+                            // problem with audio only:
+                            // joomla reverts src to abs - wrong urls (in administrator only) after article save
                             if (block.mp3) {
-                                audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
+                                if (block.mp3.startsWith("http")) {
+                                    audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
+                                } else {
+                                    audioMp3 = `<source src="../${block.mp3}" type="audio/mpeg">`;
+                                }
                             }
                             if (block.ogg) {
-                                audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
+                                if (block.ogg.startsWith("http")) {
+                                    audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
+                                } else {
+                                    audioOgg = `<source src="../${block.ogg}" type="audio/ogg">`;
+                                }
                             }
                             if (block.wav) {
-                                audioWav = `<source src="${block.wav}" type="audio/wav">`;
+                                if (block.wav.startsWith("http")) {
+                                    audioWav = `<source src="${block.wav}" type="audio/wav">`;
+                                } else {
+                                    audioWav = `<source src="../${block.wav}" type="audio/wav">`;
+                                }
                             }
                             if (block.autoplay) {
                                 audioAutoplay = " autoplay";
