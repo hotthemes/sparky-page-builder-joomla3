@@ -179,7 +179,7 @@ ul.arrow li, ul.arrowleft li, ul.calendar li, ul.checklist li, ul.clock li, ul.d
 }
 
 ul.arrow li:before, ul.arrowleft li:before, ul.calendar li:before, ul.checklist li:before, ul.clock li:before, ul.delete li:before, ul.email li:before, ul.file li:before, ul.folder li:before, ul.heart li:before, ul.information li:before, ul.lock li:before, ul.pencil li:before, ul.play li:before, ul.rss li:before, ul.person li:before, ul.shop li:before, ul.song li:before, ul.star li:before, ul.star2 li:before, ul.trash li:before, ul.tweak li:before, ul.unlock li:before, ul.warn li:before {
-    font-family: 'FontAwesome';
+    font-family: "Font Awesome 5 Free";
     padding: 0;
     margin: 0 -30px;
     position: absolute;
