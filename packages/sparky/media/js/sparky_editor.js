@@ -610,7 +610,7 @@ function createEditableContentFromArray(arr) {
                     switch (block.type) {
 
                         case "paragraph":
-                            sparkyHTML += `<div class="block_settings_buttons sparky_block${k}"><a class="block_settings" title="Block Settings"></a><a class="add_paragraph_link" title="Add Link"></a><a class="copy_block" title="Copy Block"></a><a class="block_up" title="Move Up"></a><a class="block_down" title="Move Down"></a><a class="delete_block" title="Delete Block"></a></div><p${blockId}${blockClass} ${blockStyle} contenteditable="true" draggable="true" ondragstart="onBlockDragStart(event);" ondragend="onBlockDragEnd(event);" ondrop="onDropToBlock(event);">${block.content}</p><div data-blockdropzone="${dz}" class="block_dropzone" ondragover="onBlockDragOver(event);" ondragleave="onBlockDragLeave(event);" ondrop="onBlockDrop(event);"></div>`;
+                            sparkyHTML += `<div class="block_settings_buttons sparky_block${k}"><a class="block_settings" title="Block Settings"></a><a class="copy_block" title="Copy Block"></a><a class="block_up" title="Move Up"></a><a class="block_down" title="Move Down"></a><a class="add_paragraph_link" title="Add Link"></a><a class="delete_block" title="Delete Block"></a></div><p${blockId}${blockClass} ${blockStyle} contenteditable="true" draggable="true" ondragstart="onBlockDragStart(event);" ondragend="onBlockDragEnd(event);" ondrop="onDropToBlock(event);">${block.content}</p><div data-blockdropzone="${dz}" class="block_dropzone" ondragover="onBlockDragOver(event);" ondragleave="onBlockDragLeave(event);" ondrop="onBlockDrop(event);"></div>`;
                             break;
 
                         case "heading":
@@ -653,7 +653,7 @@ function createEditableContentFromArray(arr) {
                             break;
 
                         case "list":
-                            sparkyHTML += `<div class="block_settings_buttons sparky_block${k}"><a class="block_settings" title="Block Settings"></a><a class="copy_block" title="Copy Block"></a><a class="block_up" title="Move Up"></a><a class="block_down" title="Move Down"></a><a class="delete_block" title="Delete Block"></a></div><${block.listType}${blockId}${blockClass} ${blockStyle} contenteditable="true" draggable="true" ondragstart="onBlockDragStart(event);" ondragend="onBlockDragEnd(event);" ondrop="onDropToBlock(event);">${block.content}</${block.listType}><div data-blockdropzone="${dz}" class="block_dropzone" ondragover="onBlockDragOver(event);" ondragleave="onBlockDragLeave(event);" ondrop="onBlockDrop(event);"></div>`;
+                            sparkyHTML += `<div class="block_settings_buttons sparky_block${k}"><a class="block_settings" title="Block Settings"></a><a class="copy_block" title="Copy Block"></a><a class="block_up" title="Move Up"></a><a class="block_down" title="Move Down"></a><a class="add_paragraph_link" title="Add Link"></a><a class="delete_block" title="Delete Block"></a></div><${block.listType}${blockId}${blockClass} ${blockStyle} contenteditable="true" draggable="true" ondragstart="onBlockDragStart(event);" ondragend="onBlockDragEnd(event);" ondrop="onDropToBlock(event);">${block.content}</${block.listType}><div data-blockdropzone="${dz}" class="block_dropzone" ondragover="onBlockDragOver(event);" ondragleave="onBlockDragLeave(event);" ondrop="onBlockDrop(event);"></div>`;
                             break;
 
                         case "iframe":
@@ -1551,18 +1551,29 @@ function sparkyEditorButtonsEvents() {
         button.addEventListener("click", function(event) {
 
             if ( window.getSelection().baseNode ) {
-                // check if selection is inside existing link, and existing link is in paragraph
-                if ( window.getSelection().baseNode.parentNode.nodeName === "A" && window.getSelection().baseNode.parentNode.parentNode.nodeName === "P" ) {
-                    sparky_modal( "add_link_modal" );
+                // check if selection is inside existing link, and existing link is in paragraph or list item
+                if ( window.getSelection().baseNode.parentNode.nodeName === "A" ) {
+                    if (window.getSelection().baseNode.parentNode.parentNode.nodeName === "P" || window.getSelection().baseNode.parentNode.parentNode.nodeName === "LI") {
+                        sparky_modal( "add_link_modal" );
+                    }
                 } else {
                     // open modal if some text is selected
                     if ( window.getSelection().type === "Range" ) {
-                        // check if selected text is inside this paragraph
-                        if ( window.getSelection().baseNode.parentNode === event.target.parentNode.nextSibling ) {
+                        // check if selected text is inside this paragraph (first case)
+                        // or inside list item (second case)
+                        if (
+                            window.getSelection().baseNode.parentNode === event.target.parentNode.nextSibling
+                            ||
+                            window.getSelection().baseNode.parentNode.parentNode === event.target.parentNode.nextSibling
+                        ) {
                             sparky_modal( "add_link_modal" );
                         }
+                    } else {
+                        alert("Please select two or more characters of text where you want to add a link.")
                     }
                 }
+            } else {
+                alert("Please select a part of the text first.")
             }
             
         });
