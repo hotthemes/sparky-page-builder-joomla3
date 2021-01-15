@@ -1551,8 +1551,8 @@ function sparkyEditorButtonsEvents() {
         button.addEventListener("click", function(event) {
 
             if ( window.getSelection().baseNode ) {
-                // check if selection is inside existing link
-                if ( window.getSelection().baseNode.parentNode.nodeName === "A" ) {
+                // check if selection is inside existing link, and existing link is in paragraph
+                if ( window.getSelection().baseNode.parentNode.nodeName === "A" && window.getSelection().baseNode.parentNode.parentNode.nodeName === "P" ) {
                     sparky_modal( "add_link_modal" );
                 } else {
                     // open modal if some text is selected
