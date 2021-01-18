@@ -120,13 +120,8 @@ img {
     max-width: 100%;
     height: auto;
 }
-figure[draggable="true"] img {
-    user-drag: none; 
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+.sparky_page_row figure {
+    margin: 0;
 }
 .align-left {
     display: block;
