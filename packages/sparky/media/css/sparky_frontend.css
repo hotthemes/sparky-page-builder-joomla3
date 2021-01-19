@@ -303,7 +303,98 @@ a.sparky_icon_link {
     padding: 0 10px;
 }
 
-/* Joomla frontend */
+/* Special classes */
+
+.flexcontainer {
+    display: flex;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.notopbottommargin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.notopmargin {
+    margin-top: 0 !important;
+}
+
+.nobottommargin {
+    margin-bottom: 0 !important;
+}
+
+.notopbottompadding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.notoppadding {
+    padding-top: 0 !important;
+}
+
+.nobottompadding {
+    padding-bottom: 0 !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.margintop30 {
+    margin-top: 30px !important;
+}
+
+.marginbottom30 {
+    margin-bottom: 30px !important;
+}
+
+.paddingtop30 {
+    padding-top: 30px !important;
+}
+
+.paddingbottom30 {
+    padding-bottom: 30px !important;
+}
+
+.padding30 {
+    padding: 30px !important;
+}
+
+.marginleftright15 {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+}
+
+.maxwidth50 {
+    max-width: 50%;
+}
+
+.thin {
+    max-width: 720px;
+    margin: 15px auto;
+}
+
+.thinner {
+    max-width: 460px;
+    margin: 15px auto;
+}
+
+.greybg {
+    background: #f7f7f7;
+}
+
+.borderradius50 {
+    border-radius: 50%;
+}
 
 
 /* Responsive */
