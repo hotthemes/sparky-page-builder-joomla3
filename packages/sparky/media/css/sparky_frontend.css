@@ -126,7 +126,7 @@ img {
     height: auto;
 }
 .sparky_page_row figure {
-    margin: 0;
+    margin: 0 0 15px;
 }
 .align-left {
     display: block;
