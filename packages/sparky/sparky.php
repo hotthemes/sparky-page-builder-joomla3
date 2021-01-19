@@ -465,6 +465,16 @@ class PlgEditorSparky extends JPlugin
                 <input type="text" name="column_padding_left" id="column_padding_left" class="input_inline" size="6" placeholder="Left">
                 <input type="text" name="column_padding_right" id="column_padding_right" class="input_inline" size="6" placeholder="Right">
             </label>
+            <label>Vertical align:
+                <select id="column_vertical_align">
+                    <option value="">Top</option>
+                    <option value="center">Center</option>
+                    <option value="flex-end">Bottom</option>
+                    <option value="space-around">Space Around</option>
+                    <option value="space-between">Space Between</option>
+                    <option value="space-evenly">Space Evenly</option>
+                </select>
+            </label>
         </form>
       </div>
       <div class="sparky_modal-footer">

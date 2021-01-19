@@ -26,6 +26,11 @@
     margin: 0 auto;
 }
 
+.sparky_page_container > .sparky_cell {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Cells (columns) */
 
 .sparky_cell {

@@ -2320,6 +2320,9 @@ function sparkyInlineStyle(style) {
     if (style.width){
         rowStyle = rowStyle + "width:" + style.width + ";";
     }
+    if (style.justifyContent){
+        rowStyle = rowStyle + "justify-content:" + style.justifyContent + ";";
+    }
 
     if (rowStyle) {
         return rowStyleStart + rowStyle + rowStyleEnd;
@@ -2706,7 +2709,6 @@ function sparky_modal(modal_type) {
         }
 
         // column background image repeat: no-repeat, repeat, repeat-x, repeat-y
-        console.log(sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundRepeat)
         if (sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundRepeat) {
             document.getElementById("column_background_image_repeat").value = sparkyPageContentArray[rowPosition].content[columnPosition].style.backgroundRepeat;
         } else {
@@ -2778,6 +2780,13 @@ function sparky_modal(modal_type) {
             document.getElementById("column_padding_right").value = "";
         }
 
+        // vertical align: center, flex-end, space-between, space-around, space-evenly
+        if (sparkyPageContentArray[rowPosition].content[columnPosition].style.justifyContent) {
+            document.getElementById("column_vertical_align").value = sparkyPageContentArray[rowPosition].content[columnPosition].style.justifyContent;
+        } else {
+            document.getElementById("column_vertical_align").value = "";
+        }
+
         save_button.onclick = function(event) {
 
             event.preventDefault();
@@ -2801,6 +2810,9 @@ function sparky_modal(modal_type) {
             sparkyPageContentArray[rowPosition].content[columnPosition].style.paddingBottom = document.getElementById("column_padding_bottom").value;
             sparkyPageContentArray[rowPosition].content[columnPosition].style.paddingLeft = document.getElementById("column_padding_left").value;
             sparkyPageContentArray[rowPosition].content[columnPosition].style.paddingRight = document.getElementById("column_padding_right").value;
+
+            // vertical align
+            sparkyPageContentArray[rowPosition].content[columnPosition].style.justifyContent = document.getElementById("column_vertical_align").value;
 
             refreshSparky();
 
