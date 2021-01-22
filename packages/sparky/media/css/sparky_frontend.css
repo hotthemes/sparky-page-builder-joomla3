@@ -129,7 +129,7 @@ img {
     margin: 0;
 }
 .sparky_page_row figure img {
-    margin: 0 0 15px 0;
+    margin-bottom: 15px;
 }
 .align-left {
     display: block;
