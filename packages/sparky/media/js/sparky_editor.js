@@ -2422,12 +2422,15 @@ function sparky_modal(modal_type) {
 
     // Block position in array
     let rowPosition = event.target.parentNode.parentNode.parentNode.parentNode.className;
+    rowPosition = rowPosition.split("sparky_row");
     rowPosition = rowPosition[rowPosition.length-1];
 
     let columnPosition = event.target.parentNode.parentNode.className;
+    columnPosition = columnPosition.split("sparky_col");
     columnPosition = columnPosition[columnPosition.length-1];
 
     let blockPosition = event.target.parentNode.className;
+    blockPosition = blockPosition.split("sparky_block");
     blockPosition = blockPosition[blockPosition.length-1];
 
     let blockToEdit = event.target.parentNode.nextSibling;
