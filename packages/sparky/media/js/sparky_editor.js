@@ -2603,6 +2603,22 @@ function sparky_modal(modal_type) {
             document.getElementById("row_padding_right").value = "";
         }
 
+        // row columns tablet
+        document.getElementById("row_columns_tablet").value = "";
+        for (let i = 1; i < 7; i++) {
+            if (sparkyPageContentArray[sparkyRowPosition].class.includes("columns_on_tablet" + i)) {
+                document.getElementById("row_columns_tablet").value = String(i);
+            }
+        }
+
+        // row columns phone
+        document.getElementById("row_columns_phone").value = "";
+        for (let i = 1; i < 7; i++) {
+            if (sparkyPageContentArray[sparkyRowPosition].class.includes("columns_on_phone" + i)) {
+                document.getElementById("row_columns_phone").value = String(i);
+            }
+        }
+
         save_button.onclick = function(event) {
             event.preventDefault();
 
@@ -2645,6 +2661,24 @@ function sparky_modal(modal_type) {
             sparkyPageContentArray[sparkyRowPosition].style.paddingBottom = document.getElementById("row_padding_bottom").value;
             sparkyPageContentArray[sparkyRowPosition].style.paddingLeft = document.getElementById("row_padding_left").value;
             sparkyPageContentArray[sparkyRowPosition].style.paddingRight = document.getElementById("row_padding_right").value;
+
+            // row columns tablet
+            for (let i = 1; i < 7; i++) {
+                if (document.getElementById("row_columns_tablet").value == i) {
+                    sparkyPageContentArray[sparkyRowPosition].class = "columns_on_tablet" + String(i) + " " + sparkyPageContentArray[sparkyRowPosition].class;
+                } else {
+                    sparkyPageContentArray[sparkyRowPosition].class = sparkyPageContentArray[sparkyRowPosition].class.replace("columns_on_tablet" + String(i) + " ", "");
+                }
+            }
+
+            // row columns phone
+            for (let i = 1; i < 7; i++) {
+                if (document.getElementById("row_columns_phone").value == i) {
+                    sparkyPageContentArray[sparkyRowPosition].class = "columns_on_phone" + String(i) + " " + sparkyPageContentArray[sparkyRowPosition].class;
+                } else {
+                    sparkyPageContentArray[sparkyRowPosition].class = sparkyPageContentArray[sparkyRowPosition].class.replace("columns_on_phone" + String(i) + " ", "");
+                }
+            }
 
 
             refreshSparky();

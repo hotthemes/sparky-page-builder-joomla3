@@ -341,6 +341,28 @@ class PlgEditorSparky extends JPlugin
                 <input type="text" name="row_padding_left" id="row_padding_left" class="input_inline" size="6" placeholder="Left">
                 <input type="text" name="row_padding_right" id="row_padding_right" class="input_inline" size="6" placeholder="Right">
             </label>
+            <label>Columns on Tablet:
+                <select id="row_columns_tablet">
+                    <option value="">Auto</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </label>
+            <label>Columns on Smartphone:
+                <select id="row_columns_phone">
+                    <option value="">Auto</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </label>
         </form>
       </div>
       <div class="sparky_modal-footer">
