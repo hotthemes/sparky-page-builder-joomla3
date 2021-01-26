@@ -419,32 +419,32 @@ a.sparky_icon_link {
 
     .columns_on_tablet1 .sparky_cell {
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_tablet2 .sparky_cell {
         width: 50%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_tablet3 .sparky_cell {
         width: 33.3333%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_tablet4 .sparky_cell {
         width: 25%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_tablet5 .sparky_cell {
         width: 20%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_tablet6 .sparky_cell {
         min-width: 16.6666%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
 }
@@ -457,7 +457,7 @@ a.sparky_icon_link {
 
     .sparky_page_container .sparky_cell {
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .sparky_page_container .sparky_cell:last-child {
@@ -466,32 +466,32 @@ a.sparky_icon_link {
 
     .columns_on_phone1 .sparky_cell {
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_phone2 .sparky_cell {
         width: 50%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_phone3 .sparky_cell {
         width: 33.3333%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_phone4 .sparky_cell {
         width: 25%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_phone5 .sparky_cell {
         width: 20%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .columns_on_phone6 .sparky_cell {
         min-width: 16.6666%;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
 }
