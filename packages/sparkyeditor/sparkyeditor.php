@@ -22,6 +22,8 @@ class plgContentSparkyEditor extends JPlugin
 		
 		// adding CSS and JS in head
 		$doc = JFactory::getDocument();
+		$lang = JFactory::getLanguage();
+		$direction = $lang->get('rtl');
 		
 		// add your stylesheet
 		$doc->addStyleSheet( JURI :: base().'media/plg_editors_sparky/css/fontawesome.min.css' );
@@ -41,7 +43,13 @@ class plgContentSparkyEditor extends JPlugin
 		$UniqueNo = rand();
 		
 		// inline style declaration
-		$doc->addStyleDeclaration( '' );
+		if ($direction) {
+			$doc->addStyleDeclaration( '
+.sparky_page_container {
+	flex-direction: row-reverse;
+}
+			' );
+		}
 		
 	}
 }
