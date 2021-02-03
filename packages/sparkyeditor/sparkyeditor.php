@@ -38,9 +38,6 @@ class plgContentSparkyEditor extends JPlugin
 		// $wa->registerAndUseStyle('plg_content_sparkyeditor', 'plugins/content/sparkyeditor/css/sparky_frontend.css')
 		//    ->registerAndUseScript('plg_content_sparkyeditor', 'plugins/content/sparkyeditor/js/sparky_frontend.js')
 		// ;
-
-		// allow multiple galleries on a page
-		$UniqueNo = rand();
 		
 		// inline style declaration
 		if ($direction) {
@@ -50,6 +47,31 @@ class plgContentSparkyEditor extends JPlugin
 }
 			' );
 		}
-		
+
+		// Replace colors
+
+		$templateColor[1] = $this->params->def('templateColor1', '');
+		$templateColor[2] = $this->params->def('templateColor2', '');
+		$templateColor[3] = $this->params->def('templateColor3', '');
+		$templateColor[4] = $this->params->def('templateColor4', '');
+		$templateColor[5] = $this->params->def('templateColor5', '');
+		$templateColor[6] = $this->params->def('templateColor6', '');
+
+		for ($i = 1; $i <= 6; $i++) {
+
+			$templateColor[i] = $this->params->def('templateColor'.$i, '');
+
+			if ($templateColor[i]) {
+
+				$color_rgb[i][0] = hexdec(substr($templateColor[i], 1, 2));
+				$color_rgb[i][1] = hexdec(substr($templateColor[i], 3, 2));
+				$color_rgb[i][2] = hexdec(substr($templateColor[i], 5, 2));
+
+				$color_values = [ $templateColor[i], "rgb(".$color_rgb[i][0].", ".$color_rgb[i][1].", ".$color_rgb[i][2].")", "rgb(".$color_rgb[i][0].", ".$color_rgb[i][1].", ".$color_rgb[i][2].", 1)" ];
+
+				$article->text = str_replace($color_values, "var(--sparkycolor".$i.")", $article->text);
+
+			}
+		}
 	}
 }
