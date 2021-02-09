@@ -1337,7 +1337,7 @@ class PlgEditorSparky extends JPlugin
   </div>
 </div>
 
-<script src="'.JURI :: root().'media/plg_editors_sparky/js/sparky_editor.min.js"></script>
+<script src="'.JURI :: root().'media/plg_editors_sparky/js/sparky_editor.js"></script>
 ';
 
 		return $editor;
