@@ -915,9 +915,20 @@ body.com_content section#general .col-lg-9 .card-body {
     height: 50px;
 }
 
+.edit form#adminForm > .btn-toolbar button.btn-primary {
+    background-color: #46a546;
+    border: 1px solid #378137;
+    color: #fff;
+}
+
 .edit form#adminForm > .btn-toolbar button.btn:hover {
     color: #333333 !important;
     background: #cccccc;
+}
+
+.edit form#adminForm > .btn-toolbar button.btn-primary:hover {
+    background-color: #2f6f2f;
+    color: #fff !important;
 }
 
 .edit form#adminForm > .btn-toolbar button.btn span {
@@ -987,3 +998,4 @@ iframe[name="field-media-modal"] {
 .modal .modal-body {
     max-height: 600px;
 }
+
