@@ -834,3 +834,156 @@ body.com_content section#general .col-lg-9 .card-body {
 #sparkyEditorTextarea, label#jform_articletext-lbl {
     display: none;
 }
+
+/* Front-end editing */
+
+.edit form#adminForm {
+    width: calc(100vw - var(--scrollbar-width));
+    position: relative;
+    left: calc(50% + 0.5 * var(--scrollbar-width));
+    right: calc(50% + 0.5 * var(--scrollbar-width));
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+}
+
+.edit form#adminForm .sparky_page_row:not(.row_full_width) {
+    margin: 0 auto;
+}
+
+.edit form#adminForm #com-content-formTabs,
+.edit form#adminForm #editor > .control-group,
+.edit form#adminForm #publishing > .control-group,
+.edit form#adminForm #language > .control-group,
+.edit form#adminForm #metadata > .control-group,
+.edit form#adminForm > .btn-toolbar {
+    max-width: 1200px;
+    padding: 15px 0;
+    margin: 0 auto;
+}
+
+.edit form#adminForm #editor > .control-group input#jform_title,
+.edit form#adminForm .control-group textarea {
+    width: 100%;
+}
+
+.edit form#adminForm .control-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 0;
+    height: 40px;
+    border-radius: 0;
+}
+
+.edit form#adminForm .control-group label {
+    display: inline-block;
+}
+
+.edit form#adminForm .control-group button.btn {
+    background: #f5f5f5;
+    color: #333;
+    line-height: 38px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
+.edit form#adminForm .control-group button.btn span {
+    font-size: 14px;
+    color: #333;
+    line-height: 35px;
+}
+
+.edit form#adminForm ul#com-content-formTabs {
+    padding-bottom: 0;
+    margin-bottom: 30px;
+}
+
+.edit form#adminForm ul#com-content-formTabs li {
+    margin-bottom: 0;
+}
+
+.edit form#adminForm ul#com-content-formTabs li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.edit form#adminForm > .btn-toolbar button.btn {
+    padding: 4px 12px;
+    color: #333333;
+    background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    height: 50px;
+}
+
+.edit form#adminForm > .btn-toolbar button.btn:hover {
+    color: #333333 !important;
+    background: #cccccc;
+}
+
+.edit form#adminForm > .btn-toolbar button.btn span {
+    line-height: 50px;
+}
+
+.edit form#adminForm .sparky_modal {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.edit form#adminForm .sparky_modal h3 {
+    line-height: 1;
+    font-family: Arial;
+}
+
+.edit form#adminForm .sparky_modal input[type="text"] {
+    padding: 8px;
+    margin: 0;
+    height: 30px;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.edit form#adminForm .sparky_modal select {
+    height: 28px;
+    padding: 0;
+    font-family: Arial;
+}
+
+.edit form#adminForm .sparky_modal button.btn {
+    padding: 4px 12px;
+    color: #333;
+    background-color: #f3f3f3;
+    border: 1px solid #b3b3b3;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: Arial;
+}
+
+.edit form#adminForm .sparky_modal button.btn:hover {
+    background-color: #e6e6e6;
+    color: #333 !important;
+}
+
+.edit form#adminForm .sparky_modal .sparky_modal-footer button {
+    margin-top: 5px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #2384d3;
+    border: 1px solid #2384d3;
+    color: #fff;
+}
+
+.edit form#adminForm .sparky_modal .sparky_modal-footer button:hover {
+    background-color: #185b91;
+    color: #fff !important;
+}
+
+/* Front-end media */
+
+iframe[name="field-media-modal"] {
+    border: 0;
+}
+
+.modal .modal-body {
+    max-height: 600px;
+}
