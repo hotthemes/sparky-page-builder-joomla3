@@ -545,7 +545,7 @@ function createEditableContentFromArray(arr) {
         let rowStyle = sparkyInlineStyle(row.style);
 
         // add ../ to background-image url for backend (relative urls only)
-        if( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http") ) {
+        if( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http") && !document.getElementsByClassName("content_sparky").length) {
             rowStyle = rowStyle.replace('background-image:url("', 'background-image:url("../');
             rowStyle = rowStyle.replace("background-image:url('", "background-image:url('../");
         }        
@@ -573,7 +573,7 @@ function createEditableContentFromArray(arr) {
             let columnStyle = sparkyInlineStyle(column.style);
 
             // add ../ to background-image url for backend (relative urls only)
-            if( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") ) {
+            if( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && !document.getElementsByClassName("content_sparky").length ) {
                 columnStyle = columnStyle.replace('background-image:url("', 'background-image:url("../');
                 columnStyle = columnStyle.replace("background-image:url('", "background-image:url('../");
             }
@@ -600,7 +600,7 @@ function createEditableContentFromArray(arr) {
                     if (block.alt) blockAlt = block.alt;
                     if (block.target) blockTarget = ' target="_blank"';
                     if (block.src) {
-                        if (!block.src.startsWith("http")) {
+                        if (!block.src.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                             blockSrc = "../" + block.src;
                         } else {
                             blockSrc = block.src;
@@ -670,31 +670,31 @@ function createEditableContentFromArray(arr) {
                             let videoLoop = "";
                             let videoMuted = "";
                             if (block.poster) {
-                                if (block.poster.startsWith("http")) {
-                                    videoPoster = `poster="${block.poster}" `;
-                                } else {
+                                if (!block.poster.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoPoster = `poster="../${block.poster}" `;
+                                } else {
+                                    videoPoster = `poster="${block.poster}" `;
                                 }
                             }
                             if (block.mp4) {
-                                if (block.mp4.startsWith("http")) {
-                                    videoMp4 = `<source src="${block.mp4}" type="video/mp4">`;
-                                } else {
+                                if (!block.mp4.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoMp4 = `<source src="../${block.mp4}" type="video/mp4">`;
+                                } else {
+                                    videoMp4 = `<source src="${block.mp4}" type="video/mp4">`;
                                 }
                             }
                             if (block.ogg) {
-                                if (block.ogg.startsWith("http")) {
-                                    videoOgg = `<source src="${block.ogg}" type="video/ogg">`;
-                                } else {
+                                if (!block.ogg.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoOgg = `<source src="../${block.ogg}" type="video/ogg">`;
+                                } else {
+                                    videoOgg = `<source src="${block.ogg}" type="video/ogg">`;
                                 }
                             }
                             if (block.webm) {
-                                if (block.webm.startsWith("http")) {
-                                    videoWebm = `<source src="${block.webm}" type="video/webm">`;
-                                } else {
+                                if (!block.webm.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoWebm = `<source src="../${block.webm}" type="video/webm">`;
+                                } else {
+                                    videoWebm = `<source src="${block.webm}" type="video/webm">`;
                                 }
                             }
                             if (block.autoplay) {
@@ -724,24 +724,24 @@ function createEditableContentFromArray(arr) {
                             // problem with audio only:
                             // joomla reverts src to abs - wrong urls (in administrator only) after article save
                             if (block.mp3) {
-                                if (block.mp3.startsWith("http")) {
-                                    audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
-                                } else {
+                                if (!block.mp3.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     audioMp3 = `<source src="../${block.mp3}" type="audio/mpeg">`;
+                                } else {
+                                    audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
                                 }
                             }
                             if (block.ogg) {
-                                if (block.ogg.startsWith("http")) {
-                                    audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
-                                } else {
+                                if (!block.ogg.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     audioOgg = `<source src="../${block.ogg}" type="audio/ogg">`;
+                                } else {
+                                    audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
                                 }
                             }
-                            if (block.wav) {
+                            if (!block.wav && !document.getElementsByClassName("content_sparky").length) {
                                 if (block.wav.startsWith("http")) {
-                                    audioWav = `<source src="${block.wav}" type="audio/wav">`;
-                                } else {
                                     audioWav = `<source src="../${block.wav}" type="audio/wav">`;
+                                } else {
+                                    audioWav = `<source src="${block.wav}" type="audio/wav">`;
                                 }
                             }
                             if (block.autoplay) {
