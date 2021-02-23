@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function rowFullWidthMaxWidth() {
 		row_full_width.forEach(function(row){
-			// 30 (15+15) is negative margin of .sparky_page_container
-			parentWidth = row.parentNode.offsetWidth + 30;
-			row.children[0].style.maxWidth = parentWidth + 'px';
+			// only in front-end, only in edit mode
+			if (!document.getElementsByClassName("js-editor-sparky").length) {
+				// 30 (15+15) is negative margin of .sparky_page_container
+				parentWidth = row.parentNode.offsetWidth + 30;
+				row.children[0].style.maxWidth = parentWidth + 'px';
+			}
 		});
 	}
 	rowFullWidthMaxWidth();
