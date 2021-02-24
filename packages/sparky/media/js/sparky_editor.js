@@ -2,6 +2,7 @@
 
 // get sparky editor textarea & editor container
 let sparkyEditorTextarea = document.getElementById("sparkyEditorTextarea");
+let sparkyEditorTextareaValue = document.getElementById("sparkyEditorTextarea").value;
 let sparkyPageContent = document.getElementById("sparkyPageContent");
 
 // get page url (not used anywhere... yet)
@@ -9,6 +10,12 @@ let sparkyPageUrl = window.location.href.split("/administrator/index.php");
 let sparkyFrontendUrl = sparkyPageUrl[0];
 let sparkyBackendUrl = sparkyPageUrl[0] + "/administrator/";
 
+// joomla installation path
+joomla_path = joomla_path.replace(window.location.origin, "");
+
+// fix Joomla's background-image paths
+sparkyEditorTextareaValue = sparkyEditorTextareaValue.replaceAll('background-image: url('+joomla_path+'"', 'background-image: url("');
+sparkyEditorTextareaValue = sparkyEditorTextareaValue.replaceAll("background-image: url("+joomla_path+"'", "background-image: url('");
 
 
 //// II
@@ -21,7 +28,7 @@ let sparkyBackendUrl = sparkyPageUrl[0] + "/administrator/";
 
 // parse HTML from textarea to HTML document
 const domparser = new DOMParser();
-const sparkyPageContentParsed = domparser.parseFromString(sparkyEditorTextarea.value, "text/html");
+const sparkyPageContentParsed = domparser.parseFromString(sparkyEditorTextareaValue, "text/html");
 
 // accessing parsed HTML with:
 // sparkyPageContentParsed.childNodes[0].childNodes[1].childNodes
@@ -545,10 +552,13 @@ function createEditableContentFromArray(arr) {
         let rowStyle = sparkyInlineStyle(row.style);
 
         // add ../ to background-image url for backend (relative urls only)
-        if( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http") && !document.getElementsByClassName("content_sparky").length) {
-            rowStyle = rowStyle.replace('background-image:url("', 'background-image:url("../');
-            rowStyle = rowStyle.replace("background-image:url('", "background-image:url('../");
-        }        
+        if( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http")  && !document.getElementsByClassName("content_sparky").length ) {
+            rowStyle = rowStyle.replaceAll('background-image:url("', 'background-image:url("../');
+            rowStyle = rowStyle.replaceAll("background-image:url('", "background-image:url('../");
+        } else if ( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http") && document.getElementsByClassName("content_sparky").length) {
+            rowStyle = rowStyle.replaceAll('background-image:url("', 'background-image:url("'+joomla_path);
+            rowStyle = rowStyle.replaceAll("background-image:url('", "background-image:url('"+joomla_path);
+        }
 
         if (i === 0) {
             sparkyHTML += `<div data-rowdropzone="0" class="row_dropzone" ondragover="onRowDragOver(event);" ondragleave="onRowDragLeave(event);" ondrop="onRowDrop(event);"></div>`
@@ -574,8 +584,11 @@ function createEditableContentFromArray(arr) {
 
             // add ../ to background-image url for backend (relative urls only)
             if( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && !document.getElementsByClassName("content_sparky").length ) {
-                columnStyle = columnStyle.replace('background-image:url("', 'background-image:url("../');
-                columnStyle = columnStyle.replace("background-image:url('", "background-image:url('../");
+                columnStyle = columnStyle.replaceAll('background-image:url("', 'background-image:url("../');
+                columnStyle = columnStyle.replaceAll("background-image:url('", "background-image:url('../");
+            } else if ( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && document.getElementsByClassName("content_sparky").length ) {
+                columnStyle = columnStyle.replaceAll('background-image:url("', 'background-image:url("'+joomla_path);
+                columnStyle = columnStyle.replaceAll("background-image:url('", "background-image:url('"+joomla_path);
             }
 
             // re-calc column class name - "sparky_colX" must be in order: 0, 1, 2...
@@ -602,6 +615,8 @@ function createEditableContentFromArray(arr) {
                     if (block.src) {
                         if (!block.src.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                             blockSrc = "../" + block.src;
+                        } else if (!block.src.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                            blockSrc = joomla_path + block.src;
                         } else {
                             blockSrc = block.src;
                         }
@@ -672,6 +687,8 @@ function createEditableContentFromArray(arr) {
                             if (block.poster) {
                                 if (!block.poster.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoPoster = `poster="../${block.poster}" `;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    videoPoster = `poster="${joomla_path}${block.poster}" `;
                                 } else {
                                     videoPoster = `poster="${block.poster}" `;
                                 }
@@ -679,6 +696,8 @@ function createEditableContentFromArray(arr) {
                             if (block.mp4) {
                                 if (!block.mp4.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoMp4 = `<source src="../${block.mp4}" type="video/mp4">`;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    videoMp4 = `<source src="${joomla_path}${block.mp4}" type="video/mp4">`;
                                 } else {
                                     videoMp4 = `<source src="${block.mp4}" type="video/mp4">`;
                                 }
@@ -686,6 +705,8 @@ function createEditableContentFromArray(arr) {
                             if (block.ogg) {
                                 if (!block.ogg.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoOgg = `<source src="../${block.ogg}" type="video/ogg">`;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    videoOgg = `<source src="${joomla_path}${block.ogg}" type="video/ogg">`;
                                 } else {
                                     videoOgg = `<source src="${block.ogg}" type="video/ogg">`;
                                 }
@@ -693,6 +714,8 @@ function createEditableContentFromArray(arr) {
                             if (block.webm) {
                                 if (!block.webm.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     videoWebm = `<source src="../${block.webm}" type="video/webm">`;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    videoWebm = `<source src="${joomla_path}${block.webm}" type="video/webm">`;
                                 } else {
                                     videoWebm = `<source src="${block.webm}" type="video/webm">`;
                                 }
@@ -726,6 +749,8 @@ function createEditableContentFromArray(arr) {
                             if (block.mp3) {
                                 if (!block.mp3.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     audioMp3 = `<source src="../${block.mp3}" type="audio/mpeg">`;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    audioMp3 = `<source src="${joomla_path}${block.mp3}" type="audio/mpeg">`;
                                 } else {
                                     audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
                                 }
@@ -733,6 +758,8 @@ function createEditableContentFromArray(arr) {
                             if (block.ogg) {
                                 if (!block.ogg.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
                                     audioOgg = `<source src="../${block.ogg}" type="audio/ogg">`;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    audioOgg = `<source src="${joomla_path}${block.ogg}" type="audio/ogg">`;
                                 } else {
                                     audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
                                 }
@@ -740,6 +767,8 @@ function createEditableContentFromArray(arr) {
                             if (!block.wav && !document.getElementsByClassName("content_sparky").length) {
                                 if (block.wav.startsWith("http")) {
                                     audioWav = `<source src="../${block.wav}" type="audio/wav">`;
+                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                    audioWav = `<source src="${joomla_path}${block.wav}" type="audio/wav">`;
                                 } else {
                                     audioWav = `<source src="${block.wav}" type="audio/wav">`;
                                 }
