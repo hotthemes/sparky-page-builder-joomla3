@@ -59,15 +59,15 @@ class plgContentSparkyEditor extends JPlugin
 
 		for ($i = 1; $i <= 6; $i++) {
 
-			$templateColor[i] = $this->params->def('templateColor'.$i, '');
+			$templateColor[$i] = $this->params->def('templateColor'.$i, '');
 
-			if ($templateColor[i]) {
+			if ($templateColor[$i]) {
 
-				$color_rgb[i][0] = hexdec(substr($templateColor[i], 1, 2));
-				$color_rgb[i][1] = hexdec(substr($templateColor[i], 3, 2));
-				$color_rgb[i][2] = hexdec(substr($templateColor[i], 5, 2));
+				$color_rgb[$i][0] = hexdec(substr($templateColor[$i], 1, 2));
+				$color_rgb[$i][1] = hexdec(substr($templateColor[$i], 3, 2));
+				$color_rgb[$i][2] = hexdec(substr($templateColor[$i], 5, 2));
 
-				$color_values = [ $templateColor[i], "rgb(".$color_rgb[i][0].", ".$color_rgb[i][1].", ".$color_rgb[i][2].")", "rgb(".$color_rgb[i][0].", ".$color_rgb[i][1].", ".$color_rgb[i][2].", 1)" ];
+				$color_values = [ $templateColor[$i], "rgb(".$color_rgb[$i][0].", ".$color_rgb[$i][1].", ".$color_rgb[$i][2].")", "rgb(".$color_rgb[$i][0].", ".$color_rgb[$i][1].", ".$color_rgb[$i][2].", 1)" ];
 
 				$article->text = str_replace($color_values, "var(--sparkycolor".$i.")", $article->text);
 
