@@ -839,7 +839,7 @@ body.com_content section#general .col-lg-9 .card-body {
 /* Front-end editing */
 
 .edit form#adminForm {
-    width: calc(100vw - var(--scrollbar-width));
+    width: 100vw;
     position: absolute;
     overflow: hidden;
     background: #fff;
@@ -914,12 +914,12 @@ body.com_content section#general .col-lg-9 .card-body {
     color: #333333;
     background-color: #f5f5f5;
     border: 1px solid #cccccc;
-    height: 40px;
     line-height: 40px;
 }
 
 .edit form#adminForm > .btn-toolbar button.btn-primary {
     background-color: #46a546;
+    background-image: none;
     border: 1px solid #378137;
     color: #fff;
 }
@@ -946,6 +946,7 @@ body.com_content section#general .col-lg-9 .card-body {
 .edit form#adminForm .sparky_modal h3 {
     line-height: 1;
     font-family: Arial;
+    padding: 14px 0;
 }
 
 .edit form#adminForm .sparky_modal input[type="text"] {
@@ -979,10 +980,12 @@ body.com_content section#general .col-lg-9 .card-body {
 }
 
 .edit form#adminForm .sparky_modal .sparky_modal-footer button {
-    margin-top: 5px;
+    margin-top: 10px;
+    padding: 0 12px;
     height: 30px;
     line-height: 30px;
     background-color: #2384d3;
+    background-image: none;
     border: 1px solid #2384d3;
     color: #fff;
 }
