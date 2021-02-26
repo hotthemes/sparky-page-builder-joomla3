@@ -950,7 +950,7 @@ body.com_content section#general .col-lg-9 .card-body {
 }
 
 .edit form#adminForm .sparky_modal input[type="text"] {
-    padding: 8px;
+    padding: 0 8px;
     margin: 0;
     height: 30px;
     font-size: 12px;
@@ -964,12 +964,12 @@ body.com_content section#general .col-lg-9 .card-body {
 }
 
 .edit form#adminForm .sparky_modal button.btn {
-    padding: 4px 12px;
+    padding: 0 12px;
     color: #333;
     background-color: #f3f3f3;
     border: 1px solid #b3b3b3;
-    height: 20px;
-    line-height: 20px;
+    height: 32px;
+    line-height: 32px;
     font-size: 14px;
     font-family: Arial;
 }
