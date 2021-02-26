@@ -552,10 +552,10 @@ function createEditableContentFromArray(arr) {
         let rowStyle = sparkyInlineStyle(row.style);
 
         // add ../ to background-image url for backend (relative urls only)
-        if( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http")  && !document.getElementsByClassName("content_sparky").length ) {
+        if( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http")  && !document.getElementById("adminForm") ) {
             rowStyle = rowStyle.replaceAll('background-image:url("', 'background-image:url("../');
             rowStyle = rowStyle.replaceAll("background-image:url('", "background-image:url('../");
-        } else if ( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http") && document.getElementsByClassName("content_sparky").length) {
+        } else if ( !rowStyle.includes('background-image:url("http') && !rowStyle.includes("background-image:url('http") && document.getElementById("adminForm")) {
             rowStyle = rowStyle.replaceAll('background-image:url("', 'background-image:url("'+joomla_path);
             rowStyle = rowStyle.replaceAll("background-image:url('", "background-image:url('"+joomla_path);
         }
@@ -583,10 +583,10 @@ function createEditableContentFromArray(arr) {
             let columnStyle = sparkyInlineStyle(column.style);
 
             // add ../ to background-image url for backend (relative urls only)
-            if( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && !document.getElementsByClassName("content_sparky").length ) {
+            if( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && !document.getElementById("adminForm") ) {
                 columnStyle = columnStyle.replaceAll('background-image:url("', 'background-image:url("../');
                 columnStyle = columnStyle.replaceAll("background-image:url('", "background-image:url('../");
-            } else if ( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && document.getElementsByClassName("content_sparky").length ) {
+            } else if ( !columnStyle.includes('background-image:url("http') && !columnStyle.includes("background-image:url('http") && document.getElementById("adminForm") ) {
                 columnStyle = columnStyle.replaceAll('background-image:url("', 'background-image:url("'+joomla_path);
                 columnStyle = columnStyle.replaceAll("background-image:url('", "background-image:url('"+joomla_path);
             }
@@ -613,9 +613,9 @@ function createEditableContentFromArray(arr) {
                     if (block.alt) blockAlt = block.alt;
                     if (block.target) blockTarget = ' target="_blank"';
                     if (block.src) {
-                        if (!block.src.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                        if (!block.src.startsWith("http") && !document.getElementById("adminForm")) {
                             blockSrc = "../" + block.src;
-                        } else if (!block.src.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                        } else if (!block.src.startsWith("http") && document.getElementById("adminForm")) {
                             blockSrc = joomla_path + block.src;
                         } else {
                             blockSrc = block.src;
@@ -685,36 +685,36 @@ function createEditableContentFromArray(arr) {
                             let videoLoop = "";
                             let videoMuted = "";
                             if (block.poster) {
-                                if (!block.poster.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                                if (!block.poster.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoPoster = `poster="../${block.poster}" `;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     videoPoster = `poster="${joomla_path}${block.poster}" `;
                                 } else {
                                     videoPoster = `poster="${block.poster}" `;
                                 }
                             }
                             if (block.mp4) {
-                                if (!block.mp4.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                                if (!block.mp4.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoMp4 = `<source src="../${block.mp4}" type="video/mp4">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     videoMp4 = `<source src="${joomla_path}${block.mp4}" type="video/mp4">`;
                                 } else {
                                     videoMp4 = `<source src="${block.mp4}" type="video/mp4">`;
                                 }
                             }
                             if (block.ogg) {
-                                if (!block.ogg.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                                if (!block.ogg.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoOgg = `<source src="../${block.ogg}" type="video/ogg">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     videoOgg = `<source src="${joomla_path}${block.ogg}" type="video/ogg">`;
                                 } else {
                                     videoOgg = `<source src="${block.ogg}" type="video/ogg">`;
                                 }
                             }
                             if (block.webm) {
-                                if (!block.webm.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                                if (!block.webm.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoWebm = `<source src="../${block.webm}" type="video/webm">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     videoWebm = `<source src="${joomla_path}${block.webm}" type="video/webm">`;
                                 } else {
                                     videoWebm = `<source src="${block.webm}" type="video/webm">`;
@@ -747,27 +747,27 @@ function createEditableContentFromArray(arr) {
                             // problem with audio only:
                             // joomla reverts src to abs - wrong urls (in administrator only) after article save
                             if (block.mp3) {
-                                if (!block.mp3.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                                if (!block.mp3.startsWith("http") && !document.getElementById("adminForm")) {
                                     audioMp3 = `<source src="../${block.mp3}" type="audio/mpeg">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     audioMp3 = `<source src="${joomla_path}${block.mp3}" type="audio/mpeg">`;
                                 } else {
                                     audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
                                 }
                             }
                             if (block.ogg) {
-                                if (!block.ogg.startsWith("http") && !document.getElementsByClassName("content_sparky").length) {
+                                if (!block.ogg.startsWith("http") && !document.getElementById("adminForm")) {
                                     audioOgg = `<source src="../${block.ogg}" type="audio/ogg">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     audioOgg = `<source src="${joomla_path}${block.ogg}" type="audio/ogg">`;
                                 } else {
                                     audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
                                 }
                             }
-                            if (!block.wav && !document.getElementsByClassName("content_sparky").length) {
+                            if (!block.wav && !document.getElementById("adminForm")) {
                                 if (block.wav.startsWith("http")) {
                                     audioWav = `<source src="../${block.wav}" type="audio/wav">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementsByClassName("content_sparky").length) {
+                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
                                     audioWav = `<source src="${joomla_path}${block.wav}" type="audio/wav">`;
                                 } else {
                                     audioWav = `<source src="${block.wav}" type="audio/wav">`;
