@@ -696,7 +696,7 @@ function createEditableContentFromArray(arr) {
                             if (block.mp4) {
                                 if (!block.mp4.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoMp4 = `<source src="../${block.mp4}" type="video/mp4">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
+                                } else if (!block.mp4.startsWith("http") && document.getElementById("adminForm")) {
                                     videoMp4 = `<source src="${joomla_path}${block.mp4}" type="video/mp4">`;
                                 } else {
                                     videoMp4 = `<source src="${block.mp4}" type="video/mp4">`;
@@ -705,7 +705,7 @@ function createEditableContentFromArray(arr) {
                             if (block.ogg) {
                                 if (!block.ogg.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoOgg = `<source src="../${block.ogg}" type="video/ogg">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
+                                } else if (!block.ogg.startsWith("http") && document.getElementById("adminForm")) {
                                     videoOgg = `<source src="${joomla_path}${block.ogg}" type="video/ogg">`;
                                 } else {
                                     videoOgg = `<source src="${block.ogg}" type="video/ogg">`;
@@ -714,7 +714,7 @@ function createEditableContentFromArray(arr) {
                             if (block.webm) {
                                 if (!block.webm.startsWith("http") && !document.getElementById("adminForm")) {
                                     videoWebm = `<source src="../${block.webm}" type="video/webm">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
+                                } else if (!block.webm.startsWith("http") && document.getElementById("adminForm")) {
                                     videoWebm = `<source src="${joomla_path}${block.webm}" type="video/webm">`;
                                 } else {
                                     videoWebm = `<source src="${block.webm}" type="video/webm">`;
@@ -749,7 +749,7 @@ function createEditableContentFromArray(arr) {
                             if (block.mp3) {
                                 if (!block.mp3.startsWith("http") && !document.getElementById("adminForm")) {
                                     audioMp3 = `<source src="../${block.mp3}" type="audio/mpeg">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
+                                } else if (!block.mp3.startsWith("http") && document.getElementById("adminForm")) {
                                     audioMp3 = `<source src="${joomla_path}${block.mp3}" type="audio/mpeg">`;
                                 } else {
                                     audioMp3 = `<source src="${block.mp3}" type="audio/mpeg">`;
@@ -758,7 +758,7 @@ function createEditableContentFromArray(arr) {
                             if (block.ogg) {
                                 if (!block.ogg.startsWith("http") && !document.getElementById("adminForm")) {
                                     audioOgg = `<source src="../${block.ogg}" type="audio/ogg">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
+                                } else if (!block.ogg.startsWith("http") && document.getElementById("adminForm")) {
                                     audioOgg = `<source src="${joomla_path}${block.ogg}" type="audio/ogg">`;
                                 } else {
                                     audioOgg = `<source src="${block.ogg}" type="audio/ogg">`;
@@ -767,7 +767,7 @@ function createEditableContentFromArray(arr) {
                             if (!block.wav && !document.getElementById("adminForm")) {
                                 if (block.wav.startsWith("http")) {
                                     audioWav = `<source src="../${block.wav}" type="audio/wav">`;
-                                } else if (!block.poster.startsWith("http") && document.getElementById("adminForm")) {
+                                } else if (!block.wav.startsWith("http") && document.getElementById("adminForm")) {
                                     audioWav = `<source src="${joomla_path}${block.wav}" type="audio/wav">`;
                                 } else {
                                     audioWav = `<source src="${block.wav}" type="audio/wav">`;
