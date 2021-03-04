@@ -1337,6 +1337,9 @@ class PlgEditorSparky extends JPlugin
   </div>
 </div>
 
+<script>
+  var joomla_path = "'.JURI :: root().'";
+</script>
 <script src="'.JURI :: root().'media/plg_editors_sparky/js/sparky_editor.js"></script>
 ';
 
