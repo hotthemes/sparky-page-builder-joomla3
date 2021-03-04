@@ -191,9 +191,15 @@ a.column_decrease::before {
 a.column_increase, a.column_decrease {
     transform: rotate(45deg);
 }
-.sparkle12 a.column_left, .sparkle12 a.column_right {
+.sparkle12 a.column_left,
+.sparkle12 a.column_right,
+.sparky_col0 a.column_left,
+.last_col a.column_right,
+.sparkle12 a.column_increase,
+.sparkle1 a.column_decrease {
     display: none;
 }
+
 a.column_left::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
