@@ -609,8 +609,6 @@ function createEditableContentFromArray(arr) {
                 let k = 0;
                 let dz = 1;
 
-                console.log(column.content.length)
-
                 column.content.forEach(function(block){
 
                     let blockId = "";
@@ -3189,8 +3187,6 @@ function sparky_modal(modal_type) {
 
         // get block position
         block = sparkyBlockPosition();
-
-        console.log(block)
 
         // paragraph ID value
         document.getElementById("paragraph_id").value = block.id;
