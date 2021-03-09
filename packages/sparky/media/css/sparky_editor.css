@@ -357,7 +357,8 @@ figure[draggable="true"] img {
 ul.arrow, ul.arrowleft, ul.calendar, ul.checklist, ul.clock, ul.delete, ul.email, ul.file, ul.folder, ul.heart, ul.information, ul.lock, ul.pencil, ul.play, ul.rss, ul.person, ul.shop, ul.song, ul.star, ul.star2, ul.trash, ul.tweak, ul.unlock, ul.warn {
 }
 
-ul li, ol li {
+.sparky_page_row ul li,
+.sparky_page_row ol li {
     margin: 0 0 10px 0;
     padding: 0;
 }
