@@ -66,6 +66,8 @@ body {
 
 #sparkyPageContentEditable .sparky_page_row {
     border: 1px solid #ccc;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 #sparkyPageContentEditable .sparky_cell {
     border: 1px dotted #ccc;
