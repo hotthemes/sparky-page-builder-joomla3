@@ -25,10 +25,14 @@ class plgContentSparkyEditor extends JPlugin
 		$lang = JFactory::getLanguage();
 		$direction = $lang->get('rtl');
 		
-		// add your stylesheet
+		// add stylesheet
 		$doc->addStyleSheet( JURI :: base().'media/plg_editors_sparky/css/fontawesome.min.css' );
 		$doc->addStyleSheet( JURI :: base().'media/plg_editors_sparky/css/sparky_frontend.css' );
+
+		// add script
 		$doc->addScript( JURI :: base().'media/plg_editors_sparky/js/sparky_frontend.js' );
+		JHtml::_('jquery.framework');
+		$doc->addScript( JURI :: base().'media/plg_editors_sparky/js/sparky_animation.js' );
 
 		// /** @var HtmlDocument $doc */
 		// $doc = Factory::getApplication()->getDocument();

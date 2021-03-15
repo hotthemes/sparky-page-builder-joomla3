@@ -396,7 +396,7 @@ class PlgEditorSparky extends JPlugin
         <h3>Column Settings</h3>
       </div>
       <div class="sparky_modal-body">
-        <label>Background Color<br><input type="text" name="column_background_color" id="column_background_color" placeholder="ex: #FF9933"></label>
+        <label>Background Color:<br><input type="text" name="column_background_color" id="column_background_color" placeholder="ex: #FF9933"></label>
         <div>Background Image</div>
         <div id="column_background_image_wrapper" class="field-media-wrapper"
         data-basepath="'.JURI :: root().'"
@@ -482,7 +482,7 @@ class PlgEditorSparky extends JPlugin
             <input type="text" name="column_padding_left" id="column_padding_left" class="input_inline" size="6" placeholder="Left">
             <input type="text" name="column_padding_right" id="column_padding_right" class="input_inline" size="6" placeholder="Right">
         </label>
-        <label>Vertical align:
+        <label>Vertical Align:
             <select id="column_vertical_align">
                 <option value="">Top</option>
                 <option value="center">Center</option>
@@ -492,6 +492,17 @@ class PlgEditorSparky extends JPlugin
                 <option value="space-evenly">Space Evenly</option>
             </select>
         </label>
+        <label>Animation Type:
+            <select id="column_animation_type">
+                <option value="">None</option>
+                <option value="grow-in">Grow in</option>
+                <option value="fade-in">Fade in</option>
+                <option value="fade-in-from-left">Fade in from left</option>
+                <option value="fade-in-from-right">Fade in from right</option>
+                <option value="fade-in-from-bottom">Fade in from bottom</option>
+            </select>
+        </label>
+        <label>Animation Delay (ms):<br><input type="text" name="column_animation_delay" id="column_animation_delay" placeholder="ex: 200"></label>
       </div>
       <div class="sparky_modal-footer">
       	<button id="save_column_settings_modal" class="btn btn-primary">Save</button>

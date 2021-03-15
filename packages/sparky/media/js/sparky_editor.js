@@ -186,11 +186,20 @@ function populateSparkyPageContentArray(sparkyRows) {
             // get column width per class name
             sparkle = determineColumnsNumber(column.className);
 
+            // animation (class, delay, type)
+            let sparky_animation = [ "", 0, "" ];
+            if ( column.className.includes("img-with-animation") ) {
+                sparky_animation[0] = " img-with-animation";
+                sparky_animation[1] = column.getAttribute("data-delay");
+                sparky_animation[2] = column.getAttribute("data-animation");
+            }
+
             sparkyPageContentArray[i].content.push({
                 id: column.id,
-                class: "sparkle" + sparkle + " sparky_cell sparky_col" + j,
+                class: "sparkle" + sparkle + sparky_animation[0] + " sparky_cell sparky_col" + j,
                 style: column.style,
                 cols: sparkle,
+                animation: sparky_animation,
                 content: []
             });
 
@@ -924,9 +933,18 @@ function createRealContentFromArray(arr) {
 
             // re-calc column class name - "sparky_colX" must be in order: 0, 1, 2...
             let columnStyle = sparkyInlineStyle(column.style);
-            column.class = "sparkle" + column.cols + " sparky_cell sparky_col" + j;
 
-            sparkyHTMLTextarea += `<div class="${column.class}" ${columnStyle}>`;
+            // animation
+            let columnAnimationDelay = "";
+            let columnAnimationType = "";
+            if (column.animation[0]) {
+                columnAnimationDelay = ' data-delay="' + column.animation[1] + '"';
+                columnAnimationType = ' data-animation="' + column.animation[2] + '"';
+            }
+
+            column.class = "sparkle" + column.cols + column.animation[0] + " sparky_cell sparky_col" + j;
+
+            sparkyHTMLTextarea += `<div class="${column.class}" ${columnStyle}${columnAnimationDelay}${columnAnimationType}>`;
 
                 column.content.forEach(function(block){
 
@@ -2872,6 +2890,16 @@ function sparky_modal(modal_type) {
             document.getElementById("column_vertical_align").value = "";
         }
 
+        // animation type
+        if (sparkyPageContentArray[rowPosition].content[columnPosition].animation[2]) {
+            document.getElementById("column_animation_type").value = sparkyPageContentArray[rowPosition].content[columnPosition].animation[2];
+        } else {
+            document.getElementById("column_animation_type").value = "";
+        }
+
+        // animation delay
+        document.getElementById("column_animation_delay").value = sparkyPageContentArray[rowPosition].content[columnPosition].animation[1];
+
         save_button.onclick = function(event) {
 
             event.preventDefault();
@@ -2898,6 +2926,17 @@ function sparky_modal(modal_type) {
 
             // vertical align
             sparkyPageContentArray[rowPosition].content[columnPosition].style.justifyContent = document.getElementById("column_vertical_align").value;
+
+            // animation type
+            sparkyPageContentArray[rowPosition].content[columnPosition].animation[2] = document.getElementById("column_animation_type").value;
+            if (document.getElementById("column_animation_type").value) {
+                sparkyPageContentArray[rowPosition].content[columnPosition].animation[0] = " img-with-animation";
+            } else {
+                sparkyPageContentArray[rowPosition].content[columnPosition].animation[0] = "";
+            }
+
+            // animation delay
+            sparkyPageContentArray[rowPosition].content[columnPosition].animation[1] = Number(document.getElementById("column_animation_delay").value);
 
             refreshSparky();
 

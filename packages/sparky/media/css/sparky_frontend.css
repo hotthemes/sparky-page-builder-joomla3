@@ -497,6 +497,30 @@ a.sparky_icon_link {
 
 }
 
+/* Animation */
+
+.img-with-animation {
+    opacity: 0;
+    position: relative;
+}
+
+.img-with-animation[data-animation='grow-in'] {
+    opacity: 0;
+    transform: scale(0.4);
+    transition: opacity 0.6s cubic-bezier(0.15, 0.84, 0.35, 1.25);}
+
+.img-with-animation[data-animation='fade-in-from-left'] {
+    left: -40px;
+}
+
+.img-with-animation[data-animation='fade-in-from-right'] {
+    right: -40px;
+}
+
+.img-with-animation[data-animation='fade-in-from-bottom'] {
+    bottom: -100px;
+}
+
 /* Front-end editing */
 
 .icons button.btn.dropdown-toggle {
