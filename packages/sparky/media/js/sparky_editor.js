@@ -1482,6 +1482,7 @@ function sparkyEditorButtonsEvents() {
                     class: "sparkle" + remainingSpace + " sparky_cell sparky_col" + i,
                     style: {},
                     cols: remainingSpace,
+                    animation: [ "", 0, "" ],
                     content: []
                 });
                 refreshSparky();
