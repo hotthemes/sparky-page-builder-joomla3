@@ -54,6 +54,7 @@ if (sparkyEditorTextarea.value === "") {
         class: "sparkle12 sparky_cell sparky_col0",
         style: {},
         cols: 12,
+        animation: [ "", 0, "" ],
         content: []
     });
 
@@ -97,6 +98,7 @@ if (sparkyEditorTextarea.value === "") {
             class: "sparkle12 sparky_cell sparky_col0",
             style: {},
             cols: 12,
+            animation: [ "", 0, "" ],
             content: []
         });
 
@@ -2537,6 +2539,7 @@ function sparky_modal(modal_type) {
                         class: "sparkle" + cells + " sparky_cell sparky_col" + i,
                         style: {},
                         cols: Number(cells),
+                        animation: [ "", 0, "" ],
                         content: []
                     });
                     i++;
