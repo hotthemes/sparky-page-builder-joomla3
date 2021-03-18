@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="1.6" type="plugin" group="content">
+<extension version="3.9" type="plugin" group="content">
     <name>Content - Sparky Content Plugin</name>
     <author>HotThemes</author>
     <creationDate>January 2021</creationDate>
@@ -10,16 +10,13 @@
     <version>0.3</version>
     <description>Sparky Page Builder content plugin</description>
     <scriptfile>install.php</scriptfile>
-	
     <files>
         <filename plugin="sparkyeditor">sparkyeditor.php</filename>
     </files>
-	
 	<languages folder="languages">
 		<language tag="en-GB">en-GB/en-GB.plg_content_sparkyeditor.ini</language>
 		<language tag="en-GB">en-GB/en-GB.plg_content_sparkyeditor.sys.ini</language>
 	</languages>
-	
     <config>
 		<fields name="params">
 			<fieldset name="basic">
@@ -33,9 +30,4 @@
 			</fieldset>
 		</fields>
 	</config>
-
-	<updateservers>
-        <server type="extension" priority="1" name="Sparky Page Builder Content Plugin">http://update.hotjoomlatemplates.com/pagebuilder/sparkyeditor_update.xml</server>
-    </updateservers>
-	
 </extension>
