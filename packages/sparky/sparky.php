@@ -3,7 +3,7 @@
  * @package     Joomla.Plugin
  * @subpackage  Editors.sparky
  *
- * @copyright   Copyright (C) 2020 HotThemes. All rights reserved.
+ * @copyright   Copyright (C) 2021 HotThemes. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 

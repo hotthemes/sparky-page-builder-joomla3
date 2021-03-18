@@ -1,10 +1,10 @@
 <?php
 /*------------------------------------------------------------------------
-# "Responsive Lightbox" Joomla plugin
-# Copyright (C) 2015 HotThemes. All Rights Reserved.
+# "Sparky Content Plugin" Joomla plugin
+# Copyright (C) 2021 HotThemes. All Rights Reserved.
 # License: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
 # Author: HotJoomlaTemplates.com
-# Website: http://www.hotjoomlatemplates.com
+# Website: https://www.hotjoomlatemplates.com
 -------------------------------------------------------------------------*/
 
 // no direct access
