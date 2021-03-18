@@ -33,5 +33,9 @@
 			</fieldset>
 		</fields>
 	</config>
+
+	<updateservers>
+        <server type="extension" priority="1" name="Sparky Page Builder Content Plugin">http://update.hotjoomlatemplates.com/pagebuilder/sparkyeditor_update.xml</server>
+    </updateservers>
 	
 </extension>
