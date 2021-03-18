@@ -7,7 +7,7 @@
 	<version>0.4</version>
 	<url>https://www.hotjoomlatemplates.com/</url>
 	<packager>HotThemes</packager>
-	<packagerurl>http://www.hotjoomlatemplates.com/</packagerurl>
+	<packagerurl>https://www.hotjoomlatemplates.com/</packagerurl>
 	<description>Sparky Page Builder plugins package.</description>
 	<updateservers>
         <server type="extension" priority="1" name="Sparky Page Builder Package">https://update.hotjoomlatemplates.com/pagebuilder/sparky_update.xml</server>
