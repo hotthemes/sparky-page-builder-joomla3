@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.1" type="plugin" group="editors" method="upgrade">
 	<name>Editor - Sparky Page Builder</name>
-	<version>0.2</version>
+	<version>0.3</version>
 	<creationDate>January 2021</creationDate>
 	<author>HotThemes</author>
 	<authorEmail>info@hotjoomlatemplates.com</authorEmail>
