@@ -1,22 +1,15 @@
 <updates>
 	<update>
-		<name>Editor - Sparky Page Builder</name>
-		<description>Sparky Page Builder editor plugin</description>
-		<element>sparky</element>
-		<type>plugin</type>
-		<folder>editor</folder>
+		<name>Sparky Page Builder</name>
+		<description>Sparky Page Builder package</description>
 		<version>0.3</version>
 		<infourl title="Sparky Page Builder">https://www.hotjoomlatemplates.com/page-builder</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">http://update.hotjoomlatemplates.com/pagebuilder/sparky.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://update.hotjoomlatemplates.com/pagebuilder/pkg_sparky_page_builder.zip</downloadurl>
 		</downloads>
-		<tags>
-			<tag>stable</tag>
-		</tags>
-		<maintainer>HotThemes</maintainer>
-		<maintainerurl>https://www.hotjoomlatemplates.com</maintainerurl>
-		<section>Updates</section>
-		<targetplatform name="joomla" version="3.[45689]"/>
-		<client>site</client>
+		<targetplatform name="joomla" version="3.[6789]"/>
+		<element>pkg_sparky_page_builder</element>
+		<type>package</type>
+		<client>0</client>		
 	</update>
 </updates>
