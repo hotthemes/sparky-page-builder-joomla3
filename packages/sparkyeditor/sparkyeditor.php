@@ -2,7 +2,7 @@
 /*------------------------------------------------------------------------
 # "Sparky Content Plugin" Joomla plugin
 # Copyright (C) 2021 HotThemes. All Rights Reserved.
-# License: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
+# License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 # Author: HotJoomlaTemplates.com
 # Website: https://www.hotjoomlatemplates.com
 -------------------------------------------------------------------------*/

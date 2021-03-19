@@ -1,11 +1,11 @@
 <?php
-/**
- * @package     Joomla.Plugin
- * @subpackage  Editors.sparky
- *
- * @copyright   Copyright (C) 2021 HotThemes. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
+/*------------------------------------------------------------------------
+# "Sparky Editor Plugin" Joomla plugin
+# Copyright (C) 2021 HotThemes. All Rights Reserved.
+# License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+# Author: HotJoomlaTemplates.com
+# Website: https://www.hotjoomlatemplates.com
+-------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die;
 

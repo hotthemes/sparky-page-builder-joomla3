@@ -7,7 +7,7 @@
 	<authorEmail>info@hotjoomlatemplates.com</authorEmail>
 	<authorUrl>https://www.hotjoomlatemplates.com</authorUrl>
 	<copyright>Copyright (C) 2021 HotThemes. All rights reserved.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
 	<description>Sparky Page Builder editor plugin</description>
 	<files>
 		<filename plugin="sparky">sparky.php</filename>

@@ -1,4 +1,12 @@
 <?php
+/*------------------------------------------------------------------------
+# "Sparky Content Plugin" Joomla plugin
+# Copyright (C) 2021 HotThemes. All Rights Reserved.
+# License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+# Author: HotJoomlaTemplates.com
+# Website: https://www.hotjoomlatemplates.com
+-------------------------------------------------------------------------*/
+
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
  
