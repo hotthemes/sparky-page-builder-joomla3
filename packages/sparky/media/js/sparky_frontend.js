@@ -1,3 +1,5 @@
+/* Sparky Page Builder | https://www.hotjoomlatemplates.com | Copyright (C) 2021 HotThemes. All rights reserved | GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html */
+
 /* Set scroll bar width variable */
 document.addEventListener('DOMContentLoaded', function() {
 
