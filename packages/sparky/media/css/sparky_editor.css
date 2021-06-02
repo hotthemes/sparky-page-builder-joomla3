@@ -326,6 +326,8 @@ figure[draggable="true"] img {
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    background: url(../images/figure_bg.png);
+    background-size: 8px 8px;
 }
 .align-left {
     display: block;
