@@ -11,10 +11,10 @@
 /* Layout */
 
 .sparky_page_row.row_full_width {
-    width: calc(100vw - var(--scrollbar-width));
+    width: 100vw;
     position: relative;
-    left: calc(50% + 0.5 * var(--scrollbar-width));
-    right: calc(50% + 0.5 * var(--scrollbar-width));
+    left: 50%;
+    right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
     overflow:hidden;
@@ -151,6 +151,13 @@ img {
 
 video {
     max-width: 100%;
+}
+
+/* Iframe block */
+
+iframe {
+    max-width: 100%;
+    border: 0;
 }
 
 /* Button block */
